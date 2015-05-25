@@ -59,18 +59,21 @@ Every method changing something. e.g.:
 Only methods without side-effects are allowed.
 
 ## How to implement side-effect free mutators?
-
- * $new = clone $this;
- * $new = new self(...)
- * $new = new static(...)
- * $new = new MyClass(...)
-
-  public function withHost($host)
-  {
+```
+    public function withHost($host)
+    {
+        $new = clone $this;
+        $new->host = $host;
+        return $new;
+    }
+```
+some alternatives:
+```
     $new = clone $this;
-    $new->host = $host;
-    return $new;
-  }
+    $new = new self(...)
+    $new = new static(...)
+    $new = new MyClass(...)
+```
 
 ## Can i omit mutatot methods?
 No, there is no segregation between read and write in PSR7.
