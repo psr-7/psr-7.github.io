@@ -152,6 +152,12 @@ empty string (because of bugs in arbitrary frontcontrollers losing context)
     * localhost
     * a
     * foo.bar
-    
-    
-    
+and empty string
+
+#### Streams
+
+###### What to expect from getBody() on messages without body content (HEAD, 204)?
+no-op instance of StreamInterface
+
+
+
