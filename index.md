@@ -126,3 +126,17 @@ Yes.
     * foo.bar
     
     
+    
+#### UriInterface
+###### What can i expect from a typehint on UriInterface?
+not NULL, empty string
+
+###### Can i expect any info to be available in instance of UriInterface?
+No.
+
+###### Not even a default port?
+No. It's NULL.
+
+###### Can i derive request-target from data in UriInterface?
+Yes. PSR7 does not define any methods to do so, however.
+
