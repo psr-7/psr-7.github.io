@@ -1,5 +1,6 @@
-This is an H1
-=============
+---
+title: This is my title
+layout: post
+---
 
-This is an H2
--------------
+Here is my page.
