@@ -138,14 +138,14 @@ not NULL, empty string
 ###### Can I expect any info to be available in instance of UriInterface?
 No.
 
-###### What is default Scheme?
+###### Default Scheme?
 not NULL, empty string
 
-###### What is default port?
-NULL
+###### Default port?
+NULL (not integer!)
 
 ###### What is the default path?
-empty string; because of bugs in some arbitrary frontcontrollers losing context
+empty string (because of bugs in arbitrary frontcontrollers losing context)
 
 ###### Can request-target by derived from data in UriInterface?
 Yes. PSR7 does not define any methods to do so, however.
