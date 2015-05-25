@@ -147,7 +147,7 @@ NULL (not integer!)
 ###### What is the default path?
 empty string (because of bugs in arbitrary frontcontrollers losing context)
 
-###### Can request-target by derived from data in UriInterface?
+###### Can and should request-target by derived from data in UriInterface?
 Yes. PSR7 does not define any methods to do so, however.
 
 ###### Valid values for Host?
