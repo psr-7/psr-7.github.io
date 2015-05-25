@@ -162,6 +162,7 @@ and empty string
 no-op instance of StreamInterface
 
 
+#### Appendix
 
 ```
 interface MessageInterface
