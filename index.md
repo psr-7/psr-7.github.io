@@ -88,6 +88,9 @@ Code samples can be found here:
 * [Interfaces Definition](http://www.php-fig.org/psr/psr-7/)
 * [Meta Document](http://www.php-fig.org/psr/psr-7/meta/)
 
+#### Can i use PHP's pass-by-reference-semantics to propagate changes back to caller?
+No, changes will never be propagated back to caller. You need to return the newly created object.
+
 #### How to do this in old codebase?
 No. Stop. Don't. [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
 
