@@ -67,10 +67,6 @@ Yes. Here is dependency graph:
 ###### What functional programming concepts are used?
 Changes without side-effects. Every change is done to a new object preserving state of old instance.
 
-###### Are PSR7 objects ``immutable``?
- * ``private`` access level: no
- * ``public`` access level: yes
-
 ###### How do I change data in PSR7 objects?
 With mutator methods defined on every interface.
 
