@@ -49,7 +49,8 @@ Changes without side-effects. Every change is done to a new object preserving st
 With mutator methods defined on every interface.
 
 ## What are mutator methods?
-Every method changing state. e.g.:
+Every method changing something. e.g.:
+
  * ->withHost($host)
  * ->replaceFooWithBar($foo, $bar)
  * ->setName($name)
