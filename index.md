@@ -88,7 +88,7 @@ Code samples can be found here:
 * [Interfaces Definition](http://www.php-fig.org/psr/psr-7/)
 * [Meta Document](http://www.php-fig.org/psr/psr-7/meta/)
 
-#### Can i use PHP's pass-by-reference-semantics to propagate changes back to caller?
+#### Can i use PHP's pass-by-reference-semantics to propagate object changes back to caller?
 No, changes will never be propagated back to caller. You need to return the newly created object.
 
 #### How to do this in old codebase?
