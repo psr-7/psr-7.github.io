@@ -59,6 +59,7 @@ Every method changing something. e.g.:
 Only methods without side-effects are allowed.
 
 ## How to implement side-effect free mutators?
+
 ```
     public function withHost($host)
     {
@@ -67,7 +68,9 @@ Only methods without side-effects are allowed.
         return $new;
     }
 ```
+
 some alternatives:
+
 ```
     $new = clone $this;
     $new = new self(...)
@@ -77,3 +80,13 @@ some alternatives:
 
 ## Can i omit mutator methods?
 No, there is no segregation between read and write in PSR7. You have to implement them even on readonly objects. In fact readonly objects are implicitly forbidden. You could do no-op or throw exceptions but this violates [LSP](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
+
+## What to do for changes to take effect?
+Change your code flow. PSR7 is invading you. :)
+
+Code samples can be found here:
+* [Interfaces Definition](http://www.php-fig.org/psr/psr-7/)
+* [Meta Document](http://www.php-fig.org/psr/psr-7/meta/)
+
+## How to do this in old codebase?
+No. Stop. Don't. [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
