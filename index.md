@@ -90,3 +90,24 @@ Code samples can be found here:
 
 #### How to do this in old codebase?
 No. Stop. Don't. [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
+
+#### Can i implement only one of those interfaces?
+Yes. Here is dependency graph:
+
+* MessageInterface: 11 methods
+    * dependencies: StreamInterface
+* RequestInterface: 6 methods
+    * dependencies: MessageInterface, StreamInterface, UriInterface
+* ServerRequestInterface: 13 methods
+    * dependencies: MessageInterface, RequestInterface, StreamInterface, UriInterface
+* ResponseInterface: 3 methods
+    * dependencies: MessageInterface, StreamInterface, UriInterface
+* StreamInterface: 15 methods
+    * dependencies: none
+* UriInterface: 16 methods
+    * dependencies: none
+* UploadedFileInterface: 6 methods
+    * dependencies: StreamInterface
+
+
+
