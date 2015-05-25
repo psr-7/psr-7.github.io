@@ -3,7 +3,7 @@ title: unofficial PSR7 FAQ
 layout: post
 ---
 
-# Unofficial PSR7 FAQ for PHP Devs
+# Unofficial PSR7 FAQ
 
 ### What is PSR7?
 Interfaces for all the things around ``HTTP Request`` and ``HTTP Response`` proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
