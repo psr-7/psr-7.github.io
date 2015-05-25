@@ -32,6 +32,44 @@ Considering the long development time of PSR7 it's very unlikely. Furthermore pr
 ## Can i use project X and not care about PSR7 details?
 No, PSR7 is invasive. If you work with PSR7 compliant ``HTTP Messages`` you need to know the philosophy and ideas behind PSR7 design decisions.
 
-## How can code be invasive?
-1. huge interfaces
-2. pass by reference semantics
+## Where can i find those?
+In the [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
+
+## Why PSR7 is not a common denominator of existing HTTP libraries?
+I don't know.
+
+## What functional programming concepts are used?
+Changes without side-effects. Every change is done to a new object preserving state of old instance.
+
+## Are PSR7 objects ``immutable``?
+  * ``private`` access level: no
+  * ``public`` access level: yes
+
+## How do i change data in PSR7 objects?
+With mutator methods defined on every interface.
+
+## What are mutator methods?
+Every method changing state. e.g.:
+  * ->withHost($host)
+  * ->replaceFooWithBar($foo, $bar)
+  * ->setName($name)
+
+## What mutator methods are allowed in PSR7?
+Only methods without side-effects are allowed.
+
+## How to implement side-effect free mutators?
+  * $new = clone $this;
+  * $new = new self(...)
+  * $new = new static(...)
+  * $new = new MyClass(...)
+
+    public function withHost($host)
+    {
+        $new = clone $this;
+        $new->host = $host;
+        return $new;
+    }
+
+## Can i omit mutatot methods?
+No, there is no segregation between read and write in PSR7.
+
