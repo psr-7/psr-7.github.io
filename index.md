@@ -30,4 +30,8 @@ At some point you inevitable stumble over PSR7 as nearly all major PHP projects 
 Considering the long development time of PSR7 it's very unlikely. Furthermore projects need even more time to readopt and release new versions. It's of good use to engage and learn about PSR7 now.
 
 ## Can i use project X and not care about PSR7 details?
-No, PSR7 is invasiv. If you work with PSR7 compliant Requests/Responses you need to know the philosophy and ideas behing PSR7 design decisions.
+No, PSR7 is invasive. If you work with PSR7 compliant ``HTTP Messages`` you need to know the philosophy and ideas behind PSR7 design decisions.
+
+## How can code be invasive?
+1. huge interfaces
+2. pass by reference semantics
