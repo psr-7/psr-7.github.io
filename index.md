@@ -41,6 +41,7 @@ I don't know.
 
 
 #### Interfaces
+
 ###### Can I implement only one of those interfaces?
 Yes. Here is dependency graph:
 
@@ -117,6 +118,7 @@ No. Stop. Don't. [look here](https://github.com/symfony/psr-http-message-bridge)
 
 
 #### Value Objects
+
 ###### What are Value Objects?
 Objects without explicit identity. 20 ikea coffee cups anyone?
 
