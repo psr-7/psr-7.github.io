@@ -42,17 +42,17 @@ I don't know.
 Changes without side-effects. Every change is done to a new object preserving state of old instance.
 
 ## Are PSR7 objects ``immutable``?
-  * ``private`` access level: no
-  * ``public`` access level: yes
+ * ``private`` access level: no
+ * ``public`` access level: yes
 
 ## How do i change data in PSR7 objects?
 With mutator methods defined on every interface.
 
 ## What are mutator methods?
 Every method changing state. e.g.:
-  * ->withHost($host)
-  * ->replaceFooWithBar($foo, $bar)
-  * ->setName($name)
+ * ->withHost($host)
+ * ->replaceFooWithBar($foo, $bar)
+ * ->setName($name)
 
 ## What mutator methods are allowed in PSR7?
 Only methods without side-effects are allowed.
