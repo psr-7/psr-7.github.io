@@ -76,4 +76,4 @@ some alternatives:
 ```
 
 ## Can i omit mutator methods?
-No, there is no segregation between read and write in PSR7. You have to implement them even on readonly objects. In fact readonly objects are implicitly forbidden. You could throw exceptions in all write methods but this violates [LSP](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
+No, there is no segregation between read and write in PSR7. You have to implement them even on readonly objects. In fact readonly objects are implicitly forbidden. You could do no-op or throw exceptions but this violates [LSP](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
