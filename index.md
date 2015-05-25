@@ -141,7 +141,7 @@ No.
 ###### What is default Scheme?
 not NULL, empty string
 
-###### What is the default port?
+###### What is default port?
 NULL
 
 ###### What is the default path?
