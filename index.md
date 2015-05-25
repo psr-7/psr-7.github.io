@@ -116,4 +116,13 @@ Yes. Here is dependency graph:
 Objects without explicit identity. 20 ikea coffee cups anyone?
 
 #### Is this my coffee or yours?
+Yes.
 
+#### Valid values for Host?
+    * 127.0.0.1
+    * [::1]
+    * localhost
+    * a
+    * foo.bar
+    
+    
