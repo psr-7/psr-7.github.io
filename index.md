@@ -112,3 +112,8 @@ Yes. Here is dependency graph:
 
 
 
+#### What are Value Objects?
+Objects without explicit identity. 20 ikea coffee cups anyone?
+
+#### Is this my coffee or yours?
+
