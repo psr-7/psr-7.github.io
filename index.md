@@ -116,7 +116,7 @@ Change your code flow. PSR7 is invading you. :)
 Code samples can be found in [Interfaces Definition](http://www.php-fig.org/psr/psr-7/) and [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
 
 #### How to do this in old codebase?
-No. Stop. Don't. Transform your objects on project boundaries: [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
+Transform your objects on project boundaries. Bridge/Wrapper/Proxy/... [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
 
 
 
