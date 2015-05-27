@@ -6,7 +6,7 @@ layout: post
 # Unofficial PSR7 FAQ
 
 ### What is PSR7?
-Interfaces for all the things around ``HTTP Request`` and ``HTTP Response`` proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
+Set of interfaces for all the things around ``HTTP Requests`` and ``HTTP Responses`` proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
 
 #### What interfaces?
 * RequestInterface (+ ServerRequestInterface)
@@ -35,8 +35,13 @@ No, PSR7 is invasive. If you work with PSR7 compliant ``HTTP Messages`` you need
 #### Where can I find those?
 In the [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
 
+
+
+
 ### Why PSR7 is not a common denominator of existing HTTP libraries?
 I don't know.
+
+
 
 
 
@@ -63,7 +68,7 @@ Yes. Here is dependency graph:
 
 
 
-### functional programming
+### Functional Programming
 
 #### What functional programming concepts are used?
 Changes without side-effects. Every change is done to a new object preserving state of old instance.
