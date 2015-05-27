@@ -173,8 +173,18 @@ NULL (not integer!)
 #### What is the default path?
 empty string (because of bugs in arbitrary frontcontrollers losing context)
 
-#### Can and should request-target by derived from data in UriInterface?
+#### Can and should request-targets be derived from data in UriInterface?
 Yes. PSR7 does not define any methods to do so, however.
+
+You should implement those methods in Uri definition:
+   * public function originForm();
+   * public function absoluteForm();
+   * public function authorityForm();
+   * public function asteriskForm();
+
+For implementation details see: [5.3.  Request Target](http://tools.ietf.org/html/rfc7230#section-5.3)
+
+usage: $request = $request->withRequestTarget($uri->originForm())
 
 #### Valid values for Host?
     * 127.0.0.1
