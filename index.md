@@ -105,7 +105,7 @@ some alternatives:
 ```
 
 #### Can I use PHP's pass-by-reference-semantics to propagate object changes back to caller?
-No, changes will not affect old object instance in caller. You need to ``return`` the newly created object.
+No, changes may not affect instance in caller. You should ``return`` the newly created object.
 
 #### What to do for changes to take effect?
 Change your code flow. PSR7 is invading you. :)
