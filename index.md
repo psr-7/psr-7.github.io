@@ -142,14 +142,11 @@ Yes.
     
 ### UriInterface
 
-#### Can and should request-target by derived from data in UriInterface?
-Yes. PSR7 does not define any methods to do so, however.
-
-#### What can I expect from a typehint on UriInterface?
+#### What can I expect from instance of UriInterface?
 not NULL, empty string
 
 #### Can I expect any info to be available in instance of UriInterface?
-No.
+No. There is no guarantee any data is available.
 
 #### Default Scheme?
 not NULL, empty string
@@ -160,13 +157,16 @@ NULL (not integer!)
 #### What is the default path?
 empty string (because of bugs in arbitrary frontcontrollers losing context)
 
+#### Can and should request-target by derived from data in UriInterface?
+Yes. PSR7 does not define any methods to do so, however.
+
 #### Valid values for Host?
     * 127.0.0.1
     * [::1]
     * localhost
     * a
     * foo.bar
-and empty string
+    * "" empty string
 
 ### Streams
 
