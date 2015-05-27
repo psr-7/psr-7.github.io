@@ -131,12 +131,8 @@ Buzzword for passing "messages" around layers in contrast of calling specific me
 See [Middleware](https://en.wikipedia.org/wiki/Middleware)
 and [EDA](https://en.wikipedia.org/wiki/Event-driven_architecture).
 
-#### Preferred way to create message of type "Login" or "Logout" or "DoFoo"?
-PSR7 does not specify any other message type but generic "Message".
-
-#### Whole message driven architecture with one message type?
-It's called Middleware.
-
+#### What message types are defined by PSR7?
+PSR7 specify generic "Request", "Response" and "Message".
 
 
 
@@ -153,7 +149,7 @@ Yes.
 
 ### Comparability
 
-#### How to compare objects of same type with no identity?
+#### How to compare PSR7 objects?
 PSR7 does not define unified way to compare objects.
 
 
