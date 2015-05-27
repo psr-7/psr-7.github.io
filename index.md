@@ -119,6 +119,14 @@ Code samples can be found in [Interfaces Definition](http://www.php-fig.org/psr/
 Transform your objects on project boundaries to some PSR7 implementation and vice versa. Bridge/Wrapper/Proxy/you-name-it [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
 
 
+### Middleware
+
+### What is Middleware?
+Buzzword for passing "messages" around layers in contrast of calling specific methods.
+See:
+[Middleware](https://en.wikipedia.org/wiki/Middleware) and 
+[EDA](https://en.wikipedia.org/wiki/Event-driven_architecture)
+
 
 ### Value Objects
 
