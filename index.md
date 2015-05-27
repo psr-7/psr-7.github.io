@@ -149,9 +149,17 @@ Objects without explicit identity. 20 ikea coffee cups anyone?
 #### Is this my coffee or yours?
 Yes.
 
-    
-    
-    
+
+
+### Comparability
+
+#### How to compare objects of same type with no identity?
+PSR7 does not define unified way to compare objects.
+
+
+
+
+
 ### UriInterface
 
 #### What can I expect from instance of UriInterface?
