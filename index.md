@@ -175,6 +175,7 @@ empty string (because of bugs in arbitrary frontcontrollers losing context)
 
 #### Can and should request-targets be derived from data in UriInterface?
 Yes. PSR7 does not define any methods to do so, however. Implement those methods in Uri definition:
+
    * public function originForm(); // absolute-path [ "?" query ]
    * public function absoluteForm(); // alias for ->__toString()
    * public function authorityForm(); // alias for ->getAuthority()
