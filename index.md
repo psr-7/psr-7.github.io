@@ -174,13 +174,11 @@ NULL (not integer!)
 empty string (because of bugs in arbitrary frontcontrollers losing context)
 
 #### Can and should request-targets be derived from data in UriInterface?
-Yes. PSR7 does not define any methods to do so, however.
-
-You should implement those methods in Uri definition:
-   * public function originForm();
-   * public function absoluteForm();
-   * public function authorityForm();
-   * public function asteriskForm();
+Yes. PSR7 does not define any methods to do so, however. Implement those methods in Uri definition:
+   * public function originForm(); // absolute-path [ "?" query ]
+   * public function absoluteForm(); // alias for ->__toString()
+   * public function authorityForm(); // alias for ->getAuthority()
+   * public function asteriskForm(); // always: *
 
 For implementation details see: [5.3.  Request Target](http://tools.ietf.org/html/rfc7230#section-5.3)
 
