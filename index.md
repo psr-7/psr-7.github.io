@@ -123,9 +123,10 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 
 ### What is Middleware?
 Buzzword for passing "messages" around layers in contrast of calling specific methods.
-See:
-[Middleware](https://en.wikipedia.org/wiki/Middleware) and 
-[EDA](https://en.wikipedia.org/wiki/Event-driven_architecture)
+See [Middleware](https://en.wikipedia.org/wiki/Middleware)
+and [EDA](https://en.wikipedia.org/wiki/Event-driven_architecture).
+
+
 
 
 ### Value Objects
