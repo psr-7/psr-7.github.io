@@ -150,7 +150,7 @@ Yes.
 ### Comparability
 
 #### How to compare PSR7 objects?
-PSR7 does not define unified way to compare objects.
+PSR7 does not define unified way to compare objects. Dirty way: print_r($obj1, true) == print_r($obj2, true)
 
 
 
