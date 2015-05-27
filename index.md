@@ -85,6 +85,9 @@ No, there is no segregation between read and write in PSR7. You have to implemen
 Only methods without side-effects are allowed.
 
 #### How to implement side-effect free mutators?
+Create a new instance and reassign data from old object.
+
+Cloning old object is easy and efficient way to do so:
 
 ```
     public function withHost($host)
