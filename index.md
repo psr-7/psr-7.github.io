@@ -181,9 +181,10 @@ Yes. PSR7 does not define any methods to do so, however. Implement those methods
    * public function authorityForm(); // alias for ->getAuthority()
    * public function asteriskForm(); // always: *
 
+usage: $request = $request->withRequestTarget($uri->originForm())
+
 For implementation details see: [5.3.  Request Target](http://tools.ietf.org/html/rfc7230#section-5.3)
 
-usage: $request = $request->withRequestTarget($uri->originForm())
 
 #### Valid values for Host?
     * 127.0.0.1
