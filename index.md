@@ -191,7 +191,7 @@ Yes. PSR7 does not define any methods to do so, however.
 ### Streams
 
 #### What to expect from getBody() on messages without body content (HEAD, 204)?
-no-op instance of StreamInterface
+no-op instance of StreamInterface (php://memory)
 
 
 #### Appendix
