@@ -128,13 +128,13 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 
 #### What is Middleware?
 Buzzword for "passing messages around" layers in contrast to "calling specific methods".
-There are at least two more types of middlewares (application, communication) which are not related to PSR7.
+There are at least two more types of middleware (application, communication) which are not related to PSR7.
 See [Middleware](https://en.wikipedia.org/wiki/Middleware)
 and [EDA](https://en.wikipedia.org/wiki/Event-driven_architecture).
 
 
 #### What message types are defined by PSR7?
-PSR7 specify generic "Request", "Response" and "Message".
+PSR7 specify generic "Request", "Response", "Message" and "ServerRequest".
 
 
 
