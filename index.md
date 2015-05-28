@@ -142,7 +142,7 @@ PSR7 specify generic "Request", "Response", "Message" and "ServerRequest".
 ### Value Objects
 
 #### What are Value Objects?
-Objects without explicit identity. 20 ikea coffee cups anyone?
+Objects without explicit identity. e.g.: 20 ikea coffee cups
 
 #### Is this my coffee or yours?
 Yes.
