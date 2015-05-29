@@ -158,7 +158,7 @@ Yes, "Uniform Resource Identifier" (URI) is defined in UriInterface and used (on
 I don't know.
 
 #### Can URI be used to identify Responses and other message types?
-Yes, always implement ->getURI() on all message types. URIs are solid base to identify, validate and compare http resources.
+Yes, always implement ->getURI() on all message types. URIs are solid base to identify, validate and compare http resources and unthinkable without.
 
 
 ### UriInterface
