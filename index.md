@@ -177,11 +177,11 @@ empty string (because of bugs in arbitrary frontcontrollers losing context)
 
 #### How to achieve a solid Uri implementation?
 1. Require all data to be set in constructor.
-2. If some data is missing, fill in sane defaults:
+2. If some data is missing, fill in sane defaults.
 
 		default scheme: http
-		default port: 80
 		default host: 0.0.0.0
+		default port: 80
 		default path: /
 		empty string as default for all other parts
 
@@ -197,7 +197,9 @@ Yes. PSR7 does not define any methods to do so, however. Implement those methods
 		public function authorityForm(); // alias for ->getAuthority()
 		public function asteriskForm(); // always: *
 
-usage: $request = $request->withRequestTarget($uri->originForm())
+usage:
+
+		$request = $request->withRequestTarget($uri->originForm())
 
 For implementation details see: [5.3.  Request Target](http://tools.ietf.org/html/rfc7230#section-5.3)
 
