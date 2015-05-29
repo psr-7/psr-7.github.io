@@ -179,6 +179,16 @@ NULL (not integer!)
 #### What is the default path?
 empty string (because of bugs in arbitrary frontcontrollers losing context)
 
+#### How to achieve a solid Uri implementation?
+1. Require all data to be set in constructor.
+2. If some data is missing, fill in sane defaults:
+		* default scheme: http
+		* default port: 80
+		* default host: 0.0.0.0
+		* default path: /
+		* empty string as default for all other parts
+			* minimum valid URI: "http://0.0.0.0:80/" === (new Uri())->__toString()
+
 #### Can and should request-targets be derived from data in UriInterface?
 Yes. PSR7 does not define any methods to do so, however. Implement those methods in Uri definition:
 
