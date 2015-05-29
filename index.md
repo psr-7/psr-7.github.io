@@ -182,6 +182,7 @@ empty string (because of bugs in arbitrary frontcontrollers losing context)
 #### How to achieve a solid Uri implementation?
 1. Require all data to be set in constructor.
 2. If some data is missing, fill in sane defaults:
+
 		* default scheme: http
 		* default port: 80
 		* default host: 0.0.0.0
