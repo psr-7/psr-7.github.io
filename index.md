@@ -110,7 +110,7 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 
 ### Middleware
 
-#### What is Middleware?
+#### What is "Middleware"?
 Buzzword for "passing messages around" layers in contrast to "calling methods".
 Actually nor [MOM](https://en.wikipedia.org/wiki/Message-oriented_middleware) nor any other type of middleware (application, communication, content) is specific or in any way related to PSR7.
 See [Middleware 1](https://en.wikipedia.org/wiki/Middleware)
@@ -118,6 +118,10 @@ See [Middleware 1](https://en.wikipedia.org/wiki/Middleware)
 and [EDA](https://en.wikipedia.org/wiki/Event-driven_architecture).
 
 Connecting and passing data between PSR7 aware projects is called interoperability.
+
+#### What is not "Middleware"?
+Onion layers are not Middleware.
+
 
 
 #### What message types are defined by PSR7?
