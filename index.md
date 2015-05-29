@@ -126,6 +126,7 @@ PSR7 specify generic "Request", "Response", "Message" and "ServerRequest".
 
 
 ---------------------------------------------------------------------------------
+
 ### Value Objects
 
 #### What are Value Objects?
@@ -148,6 +149,7 @@ All of HTTP is unthinkable without URIs. ;)
 
 
 ---------------------------------------------------------------------------------
+
 ### URIs
 
 #### What can I expect from instance of UriInterface?
@@ -204,6 +206,7 @@ For implementation details see: [5.3.  Request Target](http://tools.ietf.org/htm
 
 
 ---------------------------------------------------------------------------------
+
 ### Streams
 
 #### What to expect from getBody() on messages without body content (HEAD, 204)?
@@ -214,6 +217,7 @@ no-op instance of StreamInterface (php://memory)
 
 
 ---------------------------------------------------------------------------------
+
 ### Interfaces
 
 #### What interfaces are defined by PSR7?
