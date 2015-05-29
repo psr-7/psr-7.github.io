@@ -220,6 +220,7 @@ no-op instance of StreamInterface (php://memory)
 #### Appendix
 
 * interface MessageInterface
+
 		* public function getProtocolVersion();
 		* public function withProtocolVersion($version);
 		* public function getHeaders();
@@ -232,7 +233,9 @@ no-op instance of StreamInterface (php://memory)
 		* public function withBody(StreamInterface $body);
 		* public function getBody();
 
+
 * interface RequestInterface extends MessageInterface
+
 		* public function getRequestTarget();
 		* public function withRequestTarget($requestTarget);
 		* public function getMethod();
@@ -240,7 +243,9 @@ no-op instance of StreamInterface (php://memory)
 		* public function getUri();
 		* public function withUri(UriInterface $uri, $preserveHost = false);
 
+
 * interface ServerRequestInterface extends RequestInterface
+
 		* public function getServerParams();
 		* public function getCookieParams();
 		* public function withCookieParams(array $cookies);
@@ -255,12 +260,16 @@ no-op instance of StreamInterface (php://memory)
 		* public function withAttribute($name, $value);
 		* public function withoutAttribute($name);
 
+
 * interface ResponseInterface extends MessageInterface
+
 		* public function getStatusCode();
 		* public function withStatus($code, $reasonPhrase = '');
 		* public function getReasonPhrase();
 
+
 * interface StreamInterface
+
 		* public function __toString();
 		* public function close();
 		* public function detach();
@@ -277,7 +286,9 @@ no-op instance of StreamInterface (php://memory)
 		* public function getContents();
 		* public function getMetadata($key = null);
 
+
 * interface UriInterface
+
 		* public function getScheme();
 		* public function getAuthority();
 		* public function getUserInfo();
@@ -295,7 +306,9 @@ no-op instance of StreamInterface (php://memory)
 		* public function withFragment($fragment);
 		* public function __toString();
 
+
 * interface UploadedFileInterface
+
 		* public function getStream();
 		* public function moveTo($targetPath);
 		* public function getSize();
