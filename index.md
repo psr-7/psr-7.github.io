@@ -50,19 +50,26 @@ I don't know.
 #### Can I implement only one of those interfaces?
 Yes. Here is dependency graph:
 
-		MessageInterface: 11 methods
+		MessageInterface
+						methods: 11
 						dependencies: StreamInterface
-		RequestInterface: 6 methods
+		RequestInterface
+						methods: 6
 						dependencies: MessageInterface, StreamInterface, UriInterface
-		ServerRequestInterface: 13 methods
+		ServerRequestInterface
+						methods: 13
 						dependencies: MessageInterface, RequestInterface, StreamInterface, UriInterface
-		ResponseInterface: 3 methods
+		ResponseInterface
+						methods: 3
 						dependencies: MessageInterface, StreamInterface, UriInterface
-		StreamInterface: 15 methods
+		StreamInterface
+						methods: 15
 						dependencies: none
-		UriInterface: 16 methods
+		UriInterface
+						methods: 16
 						dependencies: none
-		UploadedFileInterface: 6 methods
+		UploadedFileInterface
+						methods: 6
 						dependencies: StreamInterface
 
 
