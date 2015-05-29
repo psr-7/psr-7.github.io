@@ -186,7 +186,7 @@ Fill in sane defaults for missing values in constructor.
 
 minimum valid URI:
 
-		"http://0.0.0.0:80/" === (new Uri())->__toString()
+		"http://0.0.0.0/" === (new Uri())->__toString()
 
 #### Can and should request-targets be derived from data in UriInterface?
 Yes. PSR7 does not define any methods to do so, however. Implement those methods in Uri definition:
