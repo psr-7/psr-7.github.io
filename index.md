@@ -204,12 +204,12 @@ For implementation details see: [5.3.  Request Target](http://tools.ietf.org/htm
 
 
 #### Valid values for Host?
-		* 127.0.0.1
-		* [::1]
-		* localhost
-		* a
-		* foo.bar
-		* "" empty string
+		127.0.0.1
+		[::1]
+		localhost
+		a
+		foo.bar
+
 
 ### Streams
 
