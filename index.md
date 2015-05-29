@@ -126,11 +126,21 @@ No, changes may not affect instance in caller. You should ``return`` the newly c
 You can implement additional mutators non-violating interface contract. e.g. ->setHost($host);
 
 #### What to do for changes to take effect?
-Change your code flow and return all changed objects. PSR7 is invading you. :)
 
-		list ($request, $response) = (function ($request, $response) { return array($request, $response); })($request, $response);
+Change your code flow. PSR7 is invading you. :)
 
-Code samples can be found in [Interfaces Definition](http://www.php-fig.org/psr/psr-7/) and [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
+		function changeFoo($request, $response) {
+			$request = $request->withUri(new Uri('https://example.org/'));
+			$response = $response->withStatus(200, 'OK');
+			
+			// return changes to outer scope
+			return array($request, $response);
+		}
+		list ($req2, $res2) = changeFoo($req, $res);
+		// $req, $res are unchanged
+		// $req2, $res2 are fooChanged
+
+
 
 #### How to implement PSR7 support in existing codebase?
 Transform your objects on project boundaries to some PSR7 implementation and vice versa. Bridge/Wrapper/Proxy/you-name-it [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
