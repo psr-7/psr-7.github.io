@@ -6,7 +6,7 @@ layout: default
 # Unofficial PSR7 FAQ
 
 #### What is PSR7?
-Attempt to reinvent ``Request`` and ``Response`` proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
+Attempt to reinvent and harmonize ``Request`` and ``Response`` proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
 
 #### What is PSR7 not?
 PSR7 is not a common denominator of existing HTTP libraries.
