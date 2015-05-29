@@ -104,6 +104,10 @@ Change your code flow. PSR7 is invading you. :)
 Transform your objects on project boundaries to some PSR7 implementation and vice versa. Bridge/Wrapper/Proxy/you-name-it [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
 
 
+
+
+---------------------------------------------------------------------------------
+
 ### Middleware
 
 #### What is Middleware?
@@ -121,7 +125,7 @@ PSR7 specify generic "Request", "Response", "Message" and "ServerRequest".
 
 
 
-
+---------------------------------------------------------------------------------
 ### Value Objects
 
 #### What are Value Objects?
@@ -141,6 +145,9 @@ Yes, always implement ->getURI() on all message types. URIs are solid base to id
 All of HTTP is unthinkable without URIs. ;)
 
 
+
+
+---------------------------------------------------------------------------------
 ### URIs
 
 #### What can I expect from instance of UriInterface?
@@ -194,6 +201,9 @@ For implementation details see: [5.3.  Request Target](http://tools.ietf.org/htm
 		foo.bar
 
 
+
+
+---------------------------------------------------------------------------------
 ### Streams
 
 #### What to expect from getBody() on messages without body content (HEAD, 204)?
@@ -203,7 +213,7 @@ no-op instance of StreamInterface (php://memory)
 
 
 
-
+---------------------------------------------------------------------------------
 ### Interfaces
 
 #### What interfaces are defined by PSR7?
@@ -241,8 +251,7 @@ Yes. Here is dependency graph:
 				dependencies:	StreamInterface
 
 
-
-#### Appendix
+#### method list
 
 * interface MessageInterface
 
