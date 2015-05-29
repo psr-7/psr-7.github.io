@@ -94,13 +94,18 @@ Every method changing something. e.g.:
 #### Can I omit mutator methods?
 No, there is no segregation between read and write in PSR7. You have to implement them even on readonly objects. In fact readonly objects are implicitly forbidden. You could do no-op or throw exceptions but this violates [LSP](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
 
-#### What mutator methods are defined in PSR7?
+#### What mutator methods are defined by PSR7?
 Only methods without side-effects are defined by PSR7.
 
-#### How to implement side-effect free mutators?
-Create new instance and reassign data from old object.
+		public function withHeader($name, $value);
+		public function withoutHeader($name);
 
-Cloning old object is easy and efficient way to do so:
+#### Can I implement my own mutator methods?
+Yes.
+
+
+#### How to implement side-effect free mutators?
+Create new instance and reassign data from old object. Cloning old object is easy and efficient way to do so:
 
 		public function withHost($host)
 		{
@@ -118,10 +123,12 @@ some alternatives:
 
 #### Can I use PHP's pass-by-reference-semantics to propagate object changes back to caller?
 No, changes may not affect instance in caller. You should ``return`` the newly created object.
-However, you can implement additional mutators non-violating interface contract. e.g. ->setHost($host);
+You can implement additional mutators non-violating interface contract. e.g. ->setHost($host);
 
 #### What to do for changes to take effect?
-Change your code flow. PSR7 is invading you. :)
+Change your code flow and return all changed objects. PSR7 is invading you. :)
+
+		list ($request, $response) = (function ($request, $response) { return array($request, $response); })($request, $response);
 
 Code samples can be found in [Interfaces Definition](http://www.php-fig.org/psr/psr-7/) and [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
 
