@@ -1,5 +1,5 @@
 ---
-title: unofficial PSR7 FAQ
+title: PSR7
 layout: post
 ---
 
