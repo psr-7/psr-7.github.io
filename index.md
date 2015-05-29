@@ -79,9 +79,9 @@ With mutator methods defined on every interface.
 #### What are mutator methods?
 Every method changing something. e.g.:
 
- * ->withHost($host)
- * ->replaceFooWithBar($foo, $bar)
- * ->setName($name)
+		->withHost($host)
+		->replaceFooWithBar($foo, $bar)
+		->setName($name)
 
 #### Can I omit mutator methods?
 No, there is no segregation between read and write in PSR7. You have to implement them even on readonly objects. In fact readonly objects are implicitly forbidden. You could do no-op or throw exceptions but this violates [LSP](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
@@ -94,23 +94,19 @@ Create new instance and reassign data from old object.
 
 Cloning old object is easy and efficient way to do so:
 
-```
-    public function withHost($host)
-    {
-        $new = clone $this;
-        $new->host = $host;
-        return $new;
-    }
-```
+		public function withHost($host)
+		{
+			$new = clone $this;
+			$new->host = $host;
+			return $new;
+		}
 
 some alternatives:
 
-```
-    $new = clone $this;
-    $new = new self(...)
-    $new = new static(...)
-    $new = new MyClass(...)
-```
+		$new = clone $this;
+		$new = new self(...)
+		$new = new static(...)
+		$new = new MyClass(...)
 
 #### Can I use PHP's pass-by-reference-semantics to propagate object changes back to caller?
 No, changes may not affect instance in caller. You should ``return`` the newly created object.
@@ -183,12 +179,13 @@ empty string (because of bugs in arbitrary frontcontrollers losing context)
 1. Require all data to be set in constructor.
 2. If some data is missing, fill in sane defaults:
 
-		* default scheme: http
-		* default port: 80
-		* default host: 0.0.0.0
-		* default path: /
-		* empty string as default for all other parts
-			* minimum valid URI: "http://0.0.0.0:80/" === (new Uri())->__toString()
+		default scheme: http
+		default port: 80
+		default host: 0.0.0.0
+		default path: /
+		empty string as default for all other parts
+
+		minimum valid URI: "http://0.0.0.0:80/" === (new Uri())->__toString()
 
 #### Can and should request-targets be derived from data in UriInterface?
 Yes. PSR7 does not define any methods to do so, however. Implement those methods in Uri definition:
