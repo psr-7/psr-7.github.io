@@ -85,7 +85,7 @@ You can implement additional mutators non-violating interface contract. e.g. ->s
 
 #### What to do for changes to take effect?
 
-Change your code flow. PSR7 is invading you. :)
+Change your code flow. PSR7 is invading you.
 
 		function changeFoo($request, $response) {
 			$request = $request->withUri(new Uri('https://example.org/'));
@@ -148,9 +148,9 @@ Yes, "Uniform Resource Identifier" (URI) is defined in UriInterface and used (on
 #### Why only PSR7 Requests have an identity?
 I don't know.
 
-#### Can URI be used to identify Responses and other message types?
+#### Can URI be used to identify Responses and Messages of other type?
 Yes, always implement ->getURI() on all message types. URIs are solid base to identify, validate and compare http resources.
-All of HTTP is unthinkable without URIs. ;)
+All of HTTP is unthinkable without URIs.
 
 
 
