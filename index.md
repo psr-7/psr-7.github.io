@@ -193,10 +193,10 @@ empty string (because of bugs in arbitrary frontcontrollers losing context)
 #### Can and should request-targets be derived from data in UriInterface?
 Yes. PSR7 does not define any methods to do so, however. Implement those methods in Uri definition:
 
-   * public function originForm(); // absolute-path [ "?" query ]
-   * public function absoluteForm(); // alias for ->__toString()
-   * public function authorityForm(); // alias for ->getAuthority()
-   * public function asteriskForm(); // always: *
+ 		* public function originForm(); // absolute-path [ "?" query ]
+ 		* public function absoluteForm(); // alias for ->__toString()
+ 		* public function authorityForm(); // alias for ->getAuthority()
+ 		* public function asteriskForm(); // always: *
 
 usage: $request = $request->withRequestTarget($uri->originForm())
 
@@ -204,12 +204,12 @@ For implementation details see: [5.3.  Request Target](http://tools.ietf.org/htm
 
 
 #### Valid values for Host?
-    * 127.0.0.1
-    * [::1]
-    * localhost
-    * a
-    * foo.bar
-    * "" empty string
+		* 127.0.0.1
+		* [::1]
+		* localhost
+		* a
+		* foo.bar
+		* "" empty string
 
 ### Streams
 
@@ -220,86 +220,86 @@ no-op instance of StreamInterface (php://memory)
 #### Appendix
 
 * interface MessageInterface
-	* public function getProtocolVersion();
-  * public function withProtocolVersion($version);
-  * public function getHeaders();
-  * public function hasHeader($name);
-  * public function getHeader($name);
-  * public function getHeaderLine($name);
-  * public function withHeader($name, $value);
-  * public function withAddedHeader($name, $value);
-  * public function withoutHeader($name);
-  * public function withBody(StreamInterface $body);
-  * public function getBody();
+		* public function getProtocolVersion();
+		* public function withProtocolVersion($version);
+		* public function getHeaders();
+		* public function hasHeader($name);
+		* public function getHeader($name);
+		* public function getHeaderLine($name);
+		* public function withHeader($name, $value);
+		* public function withAddedHeader($name, $value);
+		* public function withoutHeader($name);
+		* public function withBody(StreamInterface $body);
+		* public function getBody();
 
 * interface RequestInterface extends MessageInterface
-  * public function getRequestTarget();
-  * public function withRequestTarget($requestTarget);
-  * public function getMethod();
-  * public function withMethod($method);
-  * public function getUri();
-  * public function withUri(UriInterface $uri, $preserveHost = false);
+		* public function getRequestTarget();
+		* public function withRequestTarget($requestTarget);
+		* public function getMethod();
+		* public function withMethod($method);
+		* public function getUri();
+		* public function withUri(UriInterface $uri, $preserveHost = false);
 
 * interface ServerRequestInterface extends RequestInterface
-  * public function getServerParams();
-  * public function getCookieParams();
-  * public function withCookieParams(array $cookies);
-  * public function getQueryParams();
-  * public function withQueryParams(array $query);
-  * public function getUploadedFiles();
-  * public function withUploadedFiles(array $uploadedFiles);
-  * public function getParsedBody();
-  * public function withParsedBody($data);
-  * public function getAttributes();
-  * public function getAttribute($name, $default = null);
-  * public function withAttribute($name, $value);
-  * public function withoutAttribute($name);
+		* public function getServerParams();
+		* public function getCookieParams();
+		* public function withCookieParams(array $cookies);
+		* public function getQueryParams();
+		* public function withQueryParams(array $query);
+		* public function getUploadedFiles();
+		* public function withUploadedFiles(array $uploadedFiles);
+		* public function getParsedBody();
+		* public function withParsedBody($data);
+		* public function getAttributes();
+		* public function getAttribute($name, $default = null);
+		* public function withAttribute($name, $value);
+		* public function withoutAttribute($name);
 
 * interface ResponseInterface extends MessageInterface
-  * public function getStatusCode();
-  * public function withStatus($code, $reasonPhrase = '');
-  * public function getReasonPhrase();
+		* public function getStatusCode();
+		* public function withStatus($code, $reasonPhrase = '');
+		* public function getReasonPhrase();
 
 * interface StreamInterface
-  * public function __toString();
-  * public function close();
-  * public function detach();
-  * public function getSize();
-  * public function tell();
-  * public function eof();
-  * public function isSeekable();
-  * public function seek($offset, $whence = SEEK_SET);
-  * public function rewind();
-  * public function isWritable();
-  * public function write($string);
-  * public function isReadable();
-  * public function read($length);
-  * public function getContents();
-  * public function getMetadata($key = null);
+		* public function __toString();
+		* public function close();
+		* public function detach();
+		* public function getSize();
+		* public function tell();
+		* public function eof();
+		* public function isSeekable();
+		* public function seek($offset, $whence = SEEK_SET);
+		* public function rewind();
+		* public function isWritable();
+		* public function write($string);
+		* public function isReadable();
+		* public function read($length);
+		* public function getContents();
+		* public function getMetadata($key = null);
 
 * interface UriInterface
-  * public function getScheme();
-  * public function getAuthority();
-  * public function getUserInfo();
-  * public function getHost();
-  * public function getPort();
-  * public function getPath();
-  * public function getQuery();
-  * public function getFragment();
-  * public function withScheme($scheme);
-  * public function withUserInfo($user, $password = null);
-  * public function withHost($host);
-  * public function withPort($port);
-  * public function withPath($path);
-  * public function withQuery($query);
-  * public function withFragment($fragment);
-  * public function __toString();
+		* public function getScheme();
+		* public function getAuthority();
+		* public function getUserInfo();
+		* public function getHost();
+		* public function getPort();
+		* public function getPath();
+		* public function getQuery();
+		* public function getFragment();
+		* public function withScheme($scheme);
+		* public function withUserInfo($user, $password = null);
+		* public function withHost($host);
+		* public function withPort($port);
+		* public function withPath($path);
+		* public function withQuery($query);
+		* public function withFragment($fragment);
+		* public function __toString();
 
 * interface UploadedFileInterface
-  * public function getStream();
-  * public function moveTo($targetPath);
-  * public function getSize();
-  * public function getError();
-  * public function getClientFilename();
-  * public function getClientMediaType();
+		* public function getStream();
+		* public function moveTo($targetPath);
+		* public function getSize();
+		* public function getError();
+		* public function getClientFilename();
+		* public function getClientMediaType();
 
