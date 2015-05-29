@@ -1,6 +1,6 @@
 ---
 title: PSR7
-layout: post
+layout: default
 ---
 
 # Unofficial PSR7 FAQ
