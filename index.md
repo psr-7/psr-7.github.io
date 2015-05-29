@@ -11,14 +11,6 @@ Attempt to reinvent and harmonize ``Request`` and ``Response`` proposed by [PHP 
 #### What is PSR7 not?
 PSR7 is not a common denominator of existing HTTP libraries.
 
-#### What interfaces are defined by PSR7?
-* RequestInterface (+ ServerRequestInterface)
-* ResponseInterface
-* MessageInterface
-* StreamInterface
-* UriInterface
-* UploadedFileInterface
-
 #### Where can I find official PSR7 documentation?
 * [Interfaces Definition](http://www.php-fig.org/psr/psr-7/)
 * [Meta Document](http://www.php-fig.org/psr/psr-7/meta/)
@@ -213,6 +205,14 @@ no-op instance of StreamInterface (php://memory)
 
 
 ### Interfaces
+
+#### What interfaces are defined by PSR7?
+* RequestInterface (+ ServerRequestInterface)
+* ResponseInterface
+* MessageInterface
+* StreamInterface
+* UriInterface
+* UploadedFileInterface
 
 #### Can I implement only one of those interfaces?
 Yes. Here is dependency graph:
