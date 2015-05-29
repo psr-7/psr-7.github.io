@@ -31,7 +31,7 @@ No, PSR7 is invasive. If you work with PSR7 compliant ``HTTP Messages`` you need
 In the [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
 
 
-
+---
 
 
 ### Functional Programming
