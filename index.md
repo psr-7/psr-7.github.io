@@ -114,6 +114,7 @@ some alternatives:
 
 #### Can I use PHP's pass-by-reference-semantics to propagate object changes back to caller?
 No, changes may not affect instance in caller. You should ``return`` the newly created object.
+However, you can implement additional mutators non-violating interface contract. e.g. ->setHost($host);
 
 #### What to do for changes to take effect?
 Change your code flow. PSR7 is invading you. :)
@@ -150,15 +151,14 @@ Objects without explicit identity. e.g.: 20 ikea coffee cups
 #### Is this my coffee or yours?
 Yes.
 
+#### Does PSR7 define identity?
+Yes, "Uniform Resource Identifier" (URI) is defined in UriInterface and used (only) in RequestInterface.
 
+#### Why only PSR7 Requests have an identity?
+I don't know.
 
-### Comparability
-
-#### How to compare PSR7 objects?
-PSR7 does not define unified way to compare objects.
-
-
-
+#### Can URI be used to identify Responses and other message types?
+Yes, always implement ->getURI() property on all message types. URIs are solid base to identify, validate and compare http resources.
 
 
 ### UriInterface
