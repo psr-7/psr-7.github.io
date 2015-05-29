@@ -50,20 +50,20 @@ I don't know.
 #### Can I implement only one of those interfaces?
 Yes. Here is dependency graph:
 
-* MessageInterface: 11 methods
-    * dependencies: StreamInterface
-* RequestInterface: 6 methods
-    * dependencies: MessageInterface, StreamInterface, UriInterface
-* ServerRequestInterface: 13 methods
-    * dependencies: MessageInterface, RequestInterface, StreamInterface, UriInterface
-* ResponseInterface: 3 methods
-    * dependencies: MessageInterface, StreamInterface, UriInterface
-* StreamInterface: 15 methods
-    * dependencies: none
-* UriInterface: 16 methods
-    * dependencies: none
-* UploadedFileInterface: 6 methods
-    * dependencies: StreamInterface
+		MessageInterface: 11 methods
+				dependencies: StreamInterface
+		RequestInterface: 6 methods
+				dependencies: MessageInterface, StreamInterface, UriInterface
+		ServerRequestInterface: 13 methods
+				dependencies: MessageInterface, RequestInterface, StreamInterface, UriInterface
+		ResponseInterface: 3 methods
+				dependencies: MessageInterface, StreamInterface, UriInterface
+		StreamInterface: 15 methods
+				dependencies: none
+		UriInterface: 16 methods
+				dependencies: none
+		UploadedFileInterface: 6 methods
+				dependencies: StreamInterface
 
 
 
@@ -158,7 +158,7 @@ Yes, always implement ->getURI() on all message types. URIs are solid base to id
 All of HTTP is unthinkable without URIs. ;)
 
 
-### UriInterface
+### URIs
 
 #### What can I expect from instance of UriInterface?
 not NULL, empty string
