@@ -51,26 +51,26 @@ I don't know.
 Yes. Here is dependency graph:
 
 		MessageInterface
-						methods: 11
-						dependencies: StreamInterface
+				methods:	11
+				dependencies:	StreamInterface
 		RequestInterface
-						methods: 6
-						dependencies: MessageInterface, StreamInterface, UriInterface
+				methods:	6
+				dependencies:	MessageInterface, StreamInterface, UriInterface
 		ServerRequestInterface
-						methods: 13
-						dependencies: MessageInterface, RequestInterface, StreamInterface, UriInterface
+				methods:	13
+				dependencies:	MessageInterface, RequestInterface, StreamInterface, UriInterface
 		ResponseInterface
-						methods: 3
-						dependencies: MessageInterface, StreamInterface, UriInterface
+				methods:	3
+				dependencies:	MessageInterface, StreamInterface, UriInterface
 		StreamInterface
-						methods: 15
-						dependencies: none
+				methods:	15
+				dependencies:	-
 		UriInterface
-						methods: 16
-						dependencies: none
+				methods:	16
+				dependencies:	-
 		UploadedFileInterface
-						methods: 6
-						dependencies: StreamInterface
+				methods:	6
+				dependencies:	StreamInterface
 
 
 
