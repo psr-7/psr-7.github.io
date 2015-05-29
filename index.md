@@ -5,10 +5,13 @@ layout: default
 
 # Unofficial PSR7 FAQ
 
-### What is PSR7?
-Set of interfaces for all the things around ``HTTP Requests`` and ``HTTP Responses`` proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
+#### What is PSR7?
+Attempt to define general-purpose ``Request`` and ``Response`` interfaces proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
 
-#### What interfaces?
+#### What is PSR7 not?
+PSR7 is not a common denominator of existing HTTP libraries.
+
+#### What interfaces are defined by PSR7?
 * RequestInterface (+ ServerRequestInterface)
 * ResponseInterface
 * MessageInterface
@@ -35,43 +38,6 @@ No, PSR7 is invasive. If you work with PSR7 compliant ``HTTP Messages`` you need
 #### Where can I find those?
 In the [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
 
-
-
-
-### Why PSR7 is not a common denominator of existing HTTP libraries?
-I don't know.
-
-
-
-
-
-### Interfaces
-
-#### Can I implement only one of those interfaces?
-Yes. Here is dependency graph:
-
-
-		UriInterface
-				methods:	16
-				dependencies:	-
-		StreamInterface
-				methods:	15
-				dependencies:	-
-		MessageInterface
-				methods:	11
-				dependencies:	StreamInterface
-		ResponseInterface
-				methods:	3
-				dependencies:	MessageInterface, StreamInterface, UriInterface
-		RequestInterface
-				methods:	6
-				dependencies:	MessageInterface, StreamInterface, UriInterface
-		ServerRequestInterface
-				methods:	13
-				dependencies:	MessageInterface, RequestInterface, StreamInterface, UriInterface
-		UploadedFileInterface
-				methods:	6
-				dependencies:	StreamInterface
 
 
 
@@ -240,6 +206,40 @@ For implementation details see: [5.3.  Request Target](http://tools.ietf.org/htm
 
 #### What to expect from getBody() on messages without body content (HEAD, 204)?
 no-op instance of StreamInterface (php://memory)
+
+
+
+
+
+
+### Interfaces
+
+#### Can I implement only one of those interfaces?
+Yes. Here is dependency graph:
+
+
+		UriInterface
+				methods:	16
+				dependencies:	-
+		StreamInterface
+				methods:	15
+				dependencies:	-
+		MessageInterface
+				methods:	11
+				dependencies:	StreamInterface
+		ResponseInterface
+				methods:	3
+				dependencies:	MessageInterface, StreamInterface, UriInterface
+		RequestInterface
+				methods:	6
+				dependencies:	MessageInterface, StreamInterface, UriInterface
+		ServerRequestInterface
+				methods:	13
+				dependencies:	MessageInterface, RequestInterface, StreamInterface, UriInterface
+		UploadedFileInterface
+				methods:	6
+				dependencies:	StreamInterface
+
 
 
 #### Appendix
