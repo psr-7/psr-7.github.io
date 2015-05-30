@@ -37,10 +37,13 @@ In the [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
 ### Functional Programming
 
 #### What functional programming concepts are used?
-Changes without side-effects. Every change is done to a new object preserving state of old instance.
+Changes without [side-effects](https://en.wikipedia.org/wiki/Side_effect_(computer_science)): No observable interaction with calling functions or the outside world beside returning a value.
 
-#### How do I change data in PSR7 objects?
-With mutator methods defined on every interface.
+#### What functional programming concepts are *not* used?
+Immutability is not used as PHP does not offer this feature. Most implementations even modify objects after creation by accessing private properties.
+
+#### How to change data in PSR7 objects?
+By using mutator methods defined by PSR7.
 
 #### What are mutator methods?
 Every method changing something. e.g.:
