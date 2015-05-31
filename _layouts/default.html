@@ -67,21 +67,16 @@ $.get("http://ipinfo.io", function(response) {
     geoip = response;
 }, "jsonp");
 
-
 var sums = {};
-var last_screentime =  {};
-
 $.screentime({
     fields: fields,
     reportInterval : 10,
     googleAnalytics: true,
     callback: function(screentime) {
-        
-        last_screentime = screentime;
-        /*screentime.each(function(i) {
-                    console.log();    
-        });*/
-        
+        $.each(last_screentime, function(i) {
+            sums[i] = (sums[i] || 0) + last_screentime[i];
+        });
+/*
         var data = {
             screentime: screentime,
             referrer: document.referrer,
@@ -92,15 +87,15 @@ $.screentime({
             tzoffset: new Date().getTimezoneOffset(),
             lang: (window.navigator.userLanguage || window.navigator.language),
         }
-        
         client.addEvent("screentime", data);
+*/
     }
 });
 
-/*
+
 $(window).unload(function() {
         var data = {
-            screentime: last_screentime_data,
+            screentime: sums,
             referrer: document.referrer,
             cookie: cookie,
             geoip: geoip,
@@ -112,7 +107,6 @@ $(window).unload(function() {
         
         client.addEvent("screentime_unload", data);
 });
-*/
 
 </script>
     </body>
