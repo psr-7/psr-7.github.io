@@ -45,8 +45,8 @@ function guid() {
 }
 
 function setCookie(key, value) {
-    var expires = new Date().setTime(Number.MAX_VALUE);
-    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+    var date = new Date();
+    document.cookie = key + '=' + value + ';expires=' + data.setTime(date + (365 * 86400000)).toGMTString();
 }
 
 function getCookie(key) {
