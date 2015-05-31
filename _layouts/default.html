@@ -32,6 +32,9 @@ $.screentime({
     fields: fields,
     reportInterval : 15,
     googleAnalytics: true,
+    callback: function(data) {
+        console.log(data)
+    }
 });
 </script>
     </body>
