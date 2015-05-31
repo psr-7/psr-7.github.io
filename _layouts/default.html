@@ -40,12 +40,11 @@ function guid() {
       .toString(16)
       .substring(1);
   }
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
 function setCookie(key, value) {
-var date = new Date();
+    var date = new Date();
     date.setTime(date.getTime() + (365 * 86400000));
     document.cookie = key + '=' + value + ';expires=' + date.toUTCString();
 }
@@ -55,43 +54,63 @@ function getCookie(key) {
     return keyValue ? keyValue[2] : null;
 }
 
-var geoip = [],
-    cookie = getCookie("u");
-
-if (cookie == null) {
-    setCookie("u", guid() + "_" + (new Date().getTime()) + "_" + document.referrer);
-    cookie = getCookie("u");
-}
-
-$.get("http://ipinfo.io", function(response) {
-    geoip = response;
-}, "jsonp");
-
-var sums = {};
-$.screentime({
-    fields: fields,
-    reportInterval : 10,
-    googleAnalytics: true,
-    callback: function(screentime) {
-        $.each(screentime, function(i) {
-            sums[i] = (sums[i] || 0) + screentime[i];
-        });
-/*
-        var data = {
-            screentime: screentime,
-            referrer: document.referrer,
-            cookie: cookie,
-            geoip: geoip,
-            screen: screen.width + "x" + screen.height,
-            viewport: $(window).width() + "x" + $(window).height(),
-            tzoffset: new Date().getTimezoneOffset(),
-            lang: (window.navigator.userLanguage || window.navigator.language),
-        }
-        client.addEvent("screentime", data);
-*/
+$(window).load(function() {
+    var geoip = [], cookie = getCookie("u");
+    
+    if (cookie == null) {
+        setCookie("u", guid() + "_" + (new Date().getTime()) + "_" + document.referrer);
+        cookie = getCookie("u");
     }
-});
+    
+    $.get("http://ipinfo.io", function(response) {
+        geoip = response;
+            var data = {
+                referrer: document.referrer,
+                cookie: cookie,
+                geoip: geoip,
+                screen: screen.width + "x" + screen.height,
+                viewport: $(window).width() + "x" + $(window).height(),
+                tzoffset: new Date().getTimezoneOffset(),
+                lang: (window.navigator.userLanguage || window.navigator.language),
+            }
+            client.addEvent("geoip", data);
+    }, "jsonp");
+    
+    var sums = {};
+    $.screentime({
+        fields: fields,
+        reportInterval : 10,
+        googleAnalytics: true,
+        callback: function(screentime) {
+            $.each(screentime, function(i) {
+                sums[i] = (sums[i] || 0) + screentime[i];
+            });
+            
+            var data = {
+                screentime: sums,
+                referrer: document.referrer,
+                cookie: cookie,
+                geoip: geoip,
+                screen: screen.width + "x" + screen.height,
+                viewport: $(window).width() + "x" + $(window).height(),
+                tzoffset: new Date().getTimezoneOffset(),
+                lang: (window.navigator.userLanguage || window.navigator.language),
+            }
+            client.addEvent("screentime", data);
+        }
+    });
 
+    var data = {
+        referrer: document.referrer,
+        cookie: cookie,
+        geoip: geoip,
+        screen: screen.width + "x" + screen.height,
+        viewport: $(window).width() + "x" + $(window).height(),
+        tzoffset: new Date().getTimezoneOffset(),
+        lang: (window.navigator.userLanguage || window.navigator.language),
+    }
+    client.addEvent("load", data);
+});
 
 $(window).unload(function() {
         var data = {
@@ -104,8 +123,7 @@ $(window).unload(function() {
             tzoffset: new Date().getTimezoneOffset(),
             lang: (window.navigator.userLanguage || window.navigator.language),
         }
-        
-        client.addEvent("screentime_unload", data);
+        client.addEvent("unload", data);
 });
 
 </script>
