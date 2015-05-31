@@ -34,6 +34,16 @@ $('h3').each(function(i) {
     }
 });
 
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+
 function setCookie(key, value) {
     expires.setTime(Number.MAX_VALUE);
     document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
@@ -47,22 +57,26 @@ function getCookie(key) {
 var geoip = [],
     cookie = getCookie("u");
 
+if (cookie == null) {
+    setCookie("u", guid() + "_" + new Date().getTime() + "_" + document.referrer);
+    cookie = getCookie("u");
+}
+
 $.get("http://ipinfo.io", function(response) {
     geoip = response;
-    if (cookie == null) {
-        setCookie("u", geoip.ip + "_" + new Date().getTime() + "_" + document.referrer);
-        cookie = getCookie("u");
-    }
 }, "jsonp");
 
 $.screentime({
     fields: fields,
     reportInterval : 10,
     googleAnalytics: true,
-    callback: function(data) {
+    callback: function(screentime) {
+        var data = [];
+        data.screentime = screentime;
         data.referrer = document.referrer;
         data.cookie = cookie;
         data.geoip = geoip;
+        data.screen = screen.width + "x" + screen.height;
         client.addEvent("screentime", data);
         console.log(data);
     }
