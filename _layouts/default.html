@@ -78,6 +78,7 @@ $.screentime({
             cookie: cookie,
             geoip: geoip,
             screen: screen.width + "x" + screen.height,
+            viewport: = $(window).width() + "x" + $(window).height(),
             tzoffset: new Date().getTimezoneOffset(),
             lang: (window.navigator.userLanguage || window.navigator.language),
         }
