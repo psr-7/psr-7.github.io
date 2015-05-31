@@ -67,11 +67,21 @@ $.get("http://ipinfo.io", function(response) {
     geoip = response;
 }, "jsonp");
 
+
+var sums = {};
+var last_screentime =  {};
+
 $.screentime({
     fields: fields,
     reportInterval : 10,
     googleAnalytics: true,
     callback: function(screentime) {
+        
+        last_screentime = screentime;
+        /*screentime.each(function(i) {
+                    console.log();    
+        });*/
+        
         var data = {
             screentime: screentime,
             referrer: document.referrer,
