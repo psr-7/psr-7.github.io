@@ -27,7 +27,7 @@ var client = new Keen({
 });
 
 var fields = [];
-$('h3').each(function(i) {
+$(':header').each(function(i) {
     fields[i] = {
         name: $(this).text(),
         selector: "#" + $(this).attr('id'),
