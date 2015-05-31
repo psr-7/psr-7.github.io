@@ -18,6 +18,21 @@ ga('create', 'UA-63353287-1', 'auto');
 ga('send', 'pageview');
         </script>
 <script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/screentime.js"></script>
+<script>
+var fields = [];
+$('h3').each(function(i) {
+    fields[i] = {
+        name: $(this).text(),
+        selector: "#" + $(this).attr('id'),
+    }
+});
 
+$.screentime({
+    fields: fields,
+    reportInterval : 15,
+    googleAnalytics: true,
+});
+</script>
     </body>
 </html>
