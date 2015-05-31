@@ -45,7 +45,7 @@ function guid() {
 }
 
 function setCookie(key, value) {
-    expires = new Date().setTime(Number.MAX_VALUE);
+    var expires = new Date().setTime(Number.MAX_VALUE);
     document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
 }
 
