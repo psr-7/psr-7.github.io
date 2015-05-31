@@ -78,6 +78,7 @@ $.screentime({
         data.geoip = geoip;
         data.screen = screen.width + "x" + screen.height;
         data.tzoffset = new Date().getTimezoneOffset();
+        data.lang = (window.navigator.userLanguage || window.navigator.language)
         client.addEvent("screentime", data);
         console.log(data);
     }
