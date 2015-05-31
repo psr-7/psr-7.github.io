@@ -34,12 +34,36 @@ $('h3').each(function(i) {
     }
 });
 
+function setCookie(key, value) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+}
+
+function getCookie(key) {
+    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+    return keyValue ? keyValue[2] : null;
+}
+
+var geoip = [];
+$.get("http://ipinfo.io", function(response) {
+    geoip = response;
+}, "jsonp");
+
+var cookie = getCookie("u");
+if (cookie == null) {
+    setCookie("u", geoip.ip + "." + new Date().getTime() + "." + document.referrer);
+    cookie = getCookie("u");
+}
+
 $.screentime({
     fields: fields,
     reportInterval : 10,
     googleAnalytics: true,
     callback: function(data) {
         data.referrer = document.referrer;
+        data.cookie = cookie;
+        data.geoip = geoip;
         client.addEvent("screentime", data);
         console.log(data);
     }
