@@ -39,6 +39,7 @@ $.screentime({
     reportInterval : 10,
     googleAnalytics: true,
     callback: function(data) {
+        data.referrer = document.referrer;
         client.addEvent("screentime", data);
         console.log(data);
     }
