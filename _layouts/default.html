@@ -72,13 +72,13 @@ $.screentime({
     googleAnalytics: true,
     callback: function(screentime) {
         var data = {
-            screentime: screentime;
-            referrer: document.referrer;
-            cookie: cookie;
-            geoip: geoip;
-            screen: screen.width + "x" + screen.height;
-            tzoffset: new Date().getTimezoneOffset();
-            lang: (window.navigator.userLanguage || window.navigator.language)
+            screentime: screentime,
+            referrer: document.referrer,
+            cookie: cookie,
+            geoip: geoip,
+            screen: screen.width + "x" + screen.height,
+            tzoffset: new Date().getTimezoneOffset(),
+            lang: (window.navigator.userLanguage || window.navigator.language),
         }
         
         client.addEvent("screentime", data);
