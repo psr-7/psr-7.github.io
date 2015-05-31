@@ -58,7 +58,7 @@ var geoip = [],
     cookie = getCookie("u");
 
 if (cookie == null) {
-    setCookie("u", guid() + "_" + new Date().getTime() + "_" + document.referrer);
+    setCookie("u", guid() + "_" + (new Date().getTime()) + "_" + document.referrer);
     cookie = getCookie("u");
 }
 
@@ -77,6 +77,7 @@ $.screentime({
         data.cookie = cookie;
         data.geoip = geoip;
         data.screen = screen.width + "x" + screen.height;
+        data.tzoffset = new Date().getTimezoneOffset();
         client.addEvent("screentime", data);
         console.log(data);
     }
