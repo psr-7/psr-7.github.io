@@ -71,14 +71,16 @@ $.screentime({
     reportInterval : 10,
     googleAnalytics: true,
     callback: function(screentime) {
-        var data = [];
-        data.screentime = screentime;
-        data.referrer = document.referrer;
-        data.cookie = cookie;
-        data.geoip = geoip;
-        data.screen = screen.width + "x" + screen.height;
-        data.tzoffset = new Date().getTimezoneOffset();
-        data.lang = (window.navigator.userLanguage || window.navigator.language)
+        var data = {
+            screentime: screentime;
+            referrer: document.referrer;
+            cookie: cookie;
+            geoip: geoip;
+            screen: screen.width + "x" + screen.height;
+            tzoffset: new Date().getTimezoneOffset();
+            lang: (window.navigator.userLanguage || window.navigator.language)
+        }
+        
         client.addEvent("screentime", data);
         console.log(data);
     }
