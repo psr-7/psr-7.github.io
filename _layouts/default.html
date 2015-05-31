@@ -67,13 +67,11 @@ $.get("http://ipinfo.io", function(response) {
     geoip = response;
 }, "jsonp");
 
-var last_screentime_data = {};
 $.screentime({
     fields: fields,
     reportInterval : 10,
     googleAnalytics: true,
     callback: function(screentime) {
-        last_screentime_data = screentime;
         var data = {
             screentime: screentime,
             referrer: document.referrer,
@@ -85,11 +83,11 @@ $.screentime({
             lang: (window.navigator.userLanguage || window.navigator.language),
         }
         
-        //client.addEvent("screentime", data);
-        console.log(data);
+        client.addEvent("screentime", data);
     }
 });
 
+/*
 $(window).unload(function() {
         var data = {
             screentime: last_screentime_data,
@@ -103,8 +101,8 @@ $(window).unload(function() {
         }
         
         client.addEvent("screentime_unload", data);
-        console.log("unload", data);
 });
+*/
 
 </script>
     </body>
