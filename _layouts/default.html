@@ -39,7 +39,7 @@ $.screentime({
     reportInterval : 10,
     googleAnalytics: true,
     callback: function(data) {
-        Keen.addEvent("screentime", data);
+        client.addEvent("screentime", data);
     }
 });
 </script>
