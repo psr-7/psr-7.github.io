@@ -46,7 +46,7 @@ function guid() {
 
 function setCookie(key, value) {
     var date = new Date();
-    document.cookie = key + '=' + value + ';expires=' + date.setTime(date + (365 * 86400000)).toGMTString();
+    document.cookie = key + '=' + value + ';expires=' + date.setTime(date + (365 * 86400000)).toUTCString();
 }
 
 function getCookie(key) {
