@@ -35,8 +35,7 @@ $('h3').each(function(i) {
 });
 
 function setCookie(key, value) {
-    var expires = new Date();
-    expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+    expires.setTime(Number.MAX_VALUE);
     document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
 }
 
@@ -45,16 +44,16 @@ function getCookie(key) {
     return keyValue ? keyValue[2] : null;
 }
 
-var geoip = [];
+var geoip = [],
+    cookie = getCookie("u");
+
 $.get("http://ipinfo.io", function(response) {
     geoip = response;
+    if (cookie == null) {
+        setCookie("u", geoip.ip + "_" + new Date().getTime() + "_" + document.referrer);
+        cookie = getCookie("u");
+    }
 }, "jsonp");
-
-var cookie = getCookie("u");
-if (cookie == null) {
-    setCookie("u", geoip.ip + "." + new Date().getTime() + "." + document.referrer);
-    cookie = getCookie("u");
-}
 
 $.screentime({
     fields: fields,
@@ -68,6 +67,7 @@ $.screentime({
         console.log(data);
     }
 });
+
 </script>
     </body>
 </html>
