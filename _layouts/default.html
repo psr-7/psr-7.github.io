@@ -73,8 +73,8 @@ $.screentime({
     reportInterval : 10,
     googleAnalytics: true,
     callback: function(screentime) {
-        $.each(last_screentime, function(i) {
-            sums[i] = (sums[i] || 0) + last_screentime[i];
+        $.each(screentime, function(i) {
+            sums[i] = (sums[i] || 0) + screentime[i];
         });
 /*
         var data = {
