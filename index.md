@@ -106,9 +106,6 @@ Change your code flow. PSR7 is invading you.
 #### How to implement PSR7 support in existing codebase?
 Transform your objects on project boundaries to some PSR7 implementation and vice versa. Bridge/Wrapper/Proxy/you-name-it [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
 
-
-
-
 ---------------------------------------------------------------------------------
 
 ### Middleware
@@ -124,6 +121,10 @@ There are way more definitions nor specific nor related to PSR7:
 
 #### What is not "Middleware"?
 Onion layers are not Middleware.
+
+
+#### Is "attributes" property of ServerRequestInterface a good replacement for a Repository?
+No, faking global state by "attributes" property is as evil as real global state. Everyone can change this attributes at any time and place. It's abusing HTTP Request as a trashcan.
 
 
 
