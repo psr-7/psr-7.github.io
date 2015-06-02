@@ -9,7 +9,7 @@ layout: default
 Attempt to reinvent and harmonize ``Request`` and ``Response`` proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
 
 #### What is PSR7 not?
-PSR7 is not a common denominator of existing HTTP libraries.
+PSR7 is not a common denominator of existing HTTP libraries.abusing
 
 #### Where can I find official PSR7 documentation?
 * [Interfaces Definition](http://www.php-fig.org/psr/psr-7/)
@@ -124,7 +124,7 @@ Onion layers are not Middleware.
 
 
 #### Is "attributes" property of ServerRequestInterface a good replacement for a Repository?
-No, faking global state by "attributes" property is as evil as real global state. Everyone can change this attributes at any time and place. It's abusing HTTP Request as a trashcan.
+No, faking global state by "attributes" property is as evil as real global state. Everyone can change this attributes at any time and place. It's abusing HTTP Request as a trashcan. Make your dependencies explicit and inject them.
 
 
 
