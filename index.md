@@ -124,7 +124,7 @@ Onion layers are not Middleware.
 
 
 #### Is "attributes" property of ServerRequestInterface a good replacement for a Repository?
-No, faking global state by "attributes" property is as evil as real global state. Everyone can change this attributes at any time and place. It's abusing HTTP Request as a trashcan. Make your dependencies explicit and inject them.
+No, faking global state by "attributes" property is as evil as real global state. Everyone can change this attributes at any time and place. It's abusing HTTP Request as a trashcan. Define your dependencies explicit in method signature.
 
 
 
