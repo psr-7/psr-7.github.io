@@ -123,7 +123,7 @@ There are way more definitions nor specific nor related to PSR7:
 Onion layers are not Middleware.
 
 
-#### Is "attributes" property of ServerRequestInterface a good replacement for a Repository?
+#### Is "attributes" property of ServerRequestInterface a good replacement for Registry pattern?
 No, faking global state by "attributes" property is as evil as real global state. Everyone can change this attributes at any time and place. It's abusing HTTP Request as a trashcan. Define your dependencies explicit in method signature.
 
 
