@@ -386,3 +386,8 @@ Yes. Here is dependency graph:
 		* public function getClientFilename();
 		* public function getClientMediaType();
 
+
+
+#### slightly related foo
+[Immutability, it turns out, has costs. High costs.](http://www.xaprb.com/blog/2013/12/28/immutability-mvcc-and-garbage-collection/)
+(for PHP's garbage collector; benchmark this)
