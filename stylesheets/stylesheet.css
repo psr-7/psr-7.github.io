@@ -17,7 +17,7 @@ html {
  */
 
 body {
-  margin: 0;
+  margin: 1em;
 }
 
 /* HTML5 display definitions
@@ -624,7 +624,6 @@ form {
 
 #main-content h1:before {
   padding-right: 0.3em;
-  margin-left: 2em;
   color: #9ddcff;
   content: "/";
 }
@@ -639,7 +638,6 @@ form {
 }
 #main-content h2:before {
   padding-right: 0.3em;
-  margin-left: 2.5em;
   content: "//";
   color: #9ddcff;
 }
@@ -656,7 +654,6 @@ form {
 
 #main-content h3:before {
   padding-right: 0.3em;
-  margin-left: 3em;
   content: "///";
   color: #9ddcff;
 }
@@ -672,7 +669,6 @@ form {
 
 h4:before {
   padding-right: 0.3em;
-  margin-left: 3.8em;
   content: "////";
   color: #9ddcff;
 }
@@ -686,7 +682,6 @@ h4:before {
 }
 h5:before {
   padding-right: 0.3em;
-  margin-left: 4.2em;
   content: "/////";
   color: #9ddcff;
 }
@@ -700,7 +695,6 @@ h5:before {
 }
 h6:before {
   padding-right: 0.3em;
-  margin-left: 5.7em;
   content: "//////";
   color: #9ddcff;
 }
@@ -800,7 +794,6 @@ footer a:hover {
   #main-content h5:before,
   #main-content h6:before {
     padding-right: 0;
-    margin-left: 5;
     content: none;
   }
 }
@@ -868,7 +861,6 @@ footer a:hover {
   #main-content h5:before,
   #main-content h6:before {
     padding-right: 0;
-    margin-left: 0;
     content: none;
   }
 }
@@ -878,4 +870,3 @@ footer a:hover {
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) { }
-
