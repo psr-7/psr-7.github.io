@@ -118,9 +118,10 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 ### Streams
 
 #### Are streams handled side-effect free?
-No, performance wise streams are **not** recreated, cloned or copied breaking this PSR7 convention as a special case.
+No, streams are a special case breaking this PSR7 convention. Performance wise streams do not have to be recreated, cloned or copied.
 
-**Watch out!** You can end up with diverged header and body data.
+**Watch out!** All clones and copies will have the same body but header values may differ!
+
 
 #### What to expect from getBody() on messages without body content (HEAD, GET request, 204)?
 no-op instance of StreamInterface (php://memory)
