@@ -44,7 +44,9 @@ Immutability is not used as PHP does not offer this feature. Most implementation
 
 ###### Could an interface ensure immutability?
 No, suchlike characteristics can only be implemented and enforced by external supervisor (layer/runtime/...).
-Split off write operations to separate interface cherish this idea best but implementation was scrapped on the way with somewhat absurd argument about too many interfaces.
+
+Separate specialized interfaces for write methods were scrapped on the way with somewhat absurd argument about too many interfaces.
+
 
 #### How to change data in PSR7 objects?
 By using mutator methods defined by PSR7.
@@ -116,11 +118,11 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 ### Streams
 
 #### Are streams handled side-effect free?
-No, streams are a special case in PSR7 breaking this convention.
-Performance wise streams are not recreated/cloned/copied.
+No, performance wise streams are **not** recreated, cloned or copied breaking this PSR7 convention as a special case.
+
 **Watch out!** You can end up with diverged header and body data.
 
-#### What to expect from getBody() on messages without body content (HEAD, 204)?
+#### What to expect from getBody() on messages without body content (HEAD, GET request, 204)?
 no-op instance of StreamInterface (php://memory)
 
 
