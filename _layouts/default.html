@@ -119,13 +119,13 @@ $(window).load(function() {
             $.each(screentime, function(i) {
                 screentime_sums[i] = (screentime_sums[i] || 0) + screentime[i];
             });
-            client.addEvent("screentime_" + iter, data());
+            client.addEvent(iter + "_screentime", data());
         }
     });
 
-    client.addEvent("load_" + iter, data());
+    client.addEvent(iter + "_load", data());
     $(window).unload(function() {
-        client.addEvent("unload_" + iter, data());
+        client.addEvent(iter + "_unload", data());
     });
 });
 </script>
