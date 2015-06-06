@@ -123,7 +123,7 @@ No, streams are a special case breaking this PSR7 convention. Performance wise s
 **Watch out!** All clones and copies will have the same body but header values may differ!
 
 
-#### What to expect from getBody() on messages without body content (HEAD, GET request, 204)?
+##### What to expect from getBody() on messages without body content (HEAD, GET request, 204)?
 no-op instance of StreamInterface (php://memory)
 
 
