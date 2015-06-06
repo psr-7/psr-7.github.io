@@ -22,6 +22,9 @@ ga('send', 'pageview');
 <script src="https://d26b395fwzu5fz.cloudfront.net/3.2.4/keen.min.js" type="text/javascript"></script>
 <script>
 
+var screentime_last = {},
+    screentime_sums = {};
+
 function guid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -42,12 +45,71 @@ function getCookie(key) {
     return keyValue ? keyValue[2] : null;
 }
 
+function cookie() {
+    var cookie = getCookie("u");
+    if (cookie == null) {
+        setCookie("u", guid() + "_" + (new Date().getTime()) + "_" + document.referrer);
+        cookie = getCookie("u");
+    }
+    return cookie;
+}
+
+function data() {
+    return {
+        "keen" : {
+            "addons" : [
+                {
+                    "name" : "keen:ip_to_geo",
+                    "input" : {
+                        "ip" : "ip_address"
+                    },
+                    "output" : "ip_geo_info"
+                },
+                {
+                    "name" : "keen:ua_parser",
+                    "input" : {
+                        "ua_string" : "user_agent"
+                    },
+                    "output" : "parsed_user_agent"
+                },
+                {
+                    "name" : "keen:url_parser",
+                    "input" : {
+                        "url" : "page_url"
+                    },
+                    "output" : "parsed_page_url"
+                },
+                {
+                    "name" : "keen:referrer_parser",
+                    "input" : {
+                        "referrer_url" : "referrer",
+                        "page_url" : "url"
+                    },
+                    "output" : "referrer_info"
+                }
+            ]
+        },
+        ip			: "${keen.ip}",
+    	geo			: "${keen.ip_geo_info}",
+    	url			: "${keen.page_url}",
+    	url_parsed	: "${keen.parsed_page_url}",	
+    	referrer	: "${keen.referrer_info}",
+    	ua			: "${keen.user_agent}",
+    	ua_parsed	: "${keen.parsed_user_agent}",
+    	
+        referrer: document.referrer,
+        cookie: cookie(),
+        screen: screen.width + "x" + screen.height,
+        viewport: $(window).width() + "x" + $(window).height(),
+        tzoffset: new Date().getTimezoneOffset(),
+        lang: (window.navigator.userLanguage || window.navigator.language),
+        screentime_last: screentime_last,
+        screentime_sums: screentime_sums,
+    }
+}
+
 $(window).load(function() {
-    var geoip = [],
-        cookie = null,
-        fields = [],
-        sums = {}
-        ;
+    var fields = [];
 
     $(':header').each(function(i) {
         fields[i] = {
@@ -56,80 +118,29 @@ $(window).load(function() {
         }
     });    
     
-    cookie = getCookie("u");
-    if (cookie == null) {
-        setCookie("u", guid() + "_" + (new Date().getTime()) + "_" + document.referrer);
-        cookie = getCookie("u");
-    }
-    
     var client = new Keen({
         projectId: "556a565c59949a73c1e98912",
         writeKey: "6a1bd981fbf1d1fc0e296405fe2dfcb79c9968181712061a98b57c2a506d9457dd9d276c1ed4d3924fe56e2ed60dc9d4bc68b402529023c4cfd20237906c1d10a8f54dc344eef0843cbcd7a9c4667c264af4526abad3d4d609ae157fd07ac97d98082efa0c795ae0ae47c7c9758a46bb",
     });
-    
-    $.get("http://ipinfo.io", function(response) {
-        geoip = response;
-            var data = {
-                referrer: document.referrer,
-                cookie: cookie,
-                geoip: geoip,
-                screen: screen.width + "x" + screen.height,
-                viewport: $(window).width() + "x" + $(window).height(),
-                tzoffset: new Date().getTimezoneOffset(),
-                lang: (window.navigator.userLanguage || window.navigator.language),
-            }
-            client.addEvent("geoip", data);
-    }, "jsonp");
     
     $.screentime({
         fields: fields,
         reportInterval : 10,
         googleAnalytics: true,
         callback: function(screentime) {
+            screentime_last = screentime;
             $.each(screentime, function(i) {
-                sums[i] = (sums[i] || 0) + screentime[i];
+                screentime_sums[i] = (screentime_sums[i] || 0) + screentime[i];
             });
-            
-            var data = {
-                screentime: sums,
-                referrer: document.referrer,
-                cookie: cookie,
-                geoip: geoip,
-                screen: screen.width + "x" + screen.height,
-                viewport: $(window).width() + "x" + $(window).height(),
-                tzoffset: new Date().getTimezoneOffset(),
-                lang: (window.navigator.userLanguage || window.navigator.language),
-            }
-            client.addEvent("screentime", data);
+            client.addEvent("screentime", data());
         }
     });
 
-    var data = {
-        referrer: document.referrer,
-        cookie: cookie,
-        geoip: geoip,
-        screen: screen.width + "x" + screen.height,
-        viewport: $(window).width() + "x" + $(window).height(),
-        tzoffset: new Date().getTimezoneOffset(),
-        lang: (window.navigator.userLanguage || window.navigator.language),
-    }
-    client.addEvent("load", data);
-        
+    client.addEvent("load", data());
     $(window).unload(function() {
-            var data = {
-                screentime: sums,
-                referrer: document.referrer,
-                cookie: cookie,
-                geoip: geoip,
-                screen: screen.width + "x" + screen.height,
-                viewport: $(window).width() + "x" + $(window).height(),
-                tzoffset: new Date().getTimezoneOffset(),
-                lang: (window.navigator.userLanguage || window.navigator.language),
-            }
-            client.addEvent("unload", data);
+        client.addEvent("unload", data());
     });
 });
-
 </script>
     </body>
 </html>
