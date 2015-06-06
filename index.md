@@ -393,4 +393,4 @@ Yes. Here is dependency graph:
 (for PHP's garbage collector; benchmark this)
 
 
-![tracking](//cdn3.iconfinder.com/data/icons/logistics/256/Tracking_and_Tracing-512.png)
+![](https://github.com/github/training-kit/blob/master/images/professortocat.png)
