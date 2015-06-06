@@ -148,20 +148,17 @@ No, faking global state by "attributes" property is as evil as real global state
 Objects without explicit identity. e.g.: 20 ikea coffee cups
 
 #### Is this my coffee or yours?
-Yes.
+No way to know.
 
 #### Does PSR7 define identity?
-Yes, "Uniform Resource Identifier" (URI) is defined in UriInterface and used (only) in RequestInterface.
+Yes, "Uniform Resource Identifier" (URI) is defined by UriInterface.
 
 #### Why only PSR7 Requests have an identity?
-I don't know.
+PSR7 modeled ``HTTP Messages`` as ``on the wire``, consequently omit common methods of a PSR7 consumer point-of-view.
 
-#### Can URI be used to identify Responses and Messages of other type?
-Yes, always implement ->getURI() on all message types. URIs are solid base to identify, validate and compare http resources.
+#### Can URI be used to identify Messages of other type?
+Yes, always implement ``getUri()`` on all message types. URIs are solid base to identify, validate and compare http resources.
 All of HTTP is unthinkable without URIs.
-
-
-
 
 ---------------------------------------------------------------------------------
 
