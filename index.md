@@ -9,7 +9,7 @@ layout: default
 Attempt to reinvent and harmonize ``Request`` and ``Response`` proposed by [PHP Framework Interop Group](http://www.php-fig.org/).
 
 #### What is PSR7 not?
-PSR7 is not a common denominator of existing HTTP libraries.abusing
+PSR7 is not a common denominator of existing HTTP libraries.
 
 #### Where can I find official PSR7 documentation?
 * [Interfaces Definition](http://www.php-fig.org/psr/psr-7/)
