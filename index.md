@@ -50,11 +50,11 @@ Split off write operations to separate interface cherish this idea best but impl
 By using mutator methods defined by PSR7.
 
 #### What are mutator methods?
-Every method changing something. e.g.:
+[Mutator method](https://en.wikipedia.org/wiki/Mutator_method) is every method changing data. e.g.:
 
 		->withHost($host)
-		->replaceFooWithBar($foo, $bar)
 		->setName($name)
+		->replaceFooWithBar($foo, $bar)
 
 #### Can I omit mutator methods?
 No, there is no segregation between read and write in PSR7. You have to implement them even on readonly objects. In fact readonly objects are implicitly forbidden. You could do no-op or throw exceptions but this violates [LSP](https://en.wikipedia.org/wiki/Liskov_substitution_principle).
