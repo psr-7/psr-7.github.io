@@ -81,9 +81,8 @@ function data() {
             ]
         },
         ip: "${keen.ip}",
-        url: "${keen.page_url}",
         ua: "${keen.user_agent}",
-
+        url: window.location.href,
         referrer: document.referrer,
         cookie: cookie(),
         screen: screen.width + "x" + screen.height,
