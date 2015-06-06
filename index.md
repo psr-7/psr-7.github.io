@@ -65,10 +65,6 @@ Only methods without side-effects are defined by PSR7.
 		public function withHeader($name, $value);
 		public function withoutHeader($name);
 
-#### Can I implement my own mutator methods?
-Yes.
-
-
 #### How to implement side-effect free mutators?
 Create new instance and reassign data from old object. Cloning old object is easy and efficient way to do so:
 
@@ -85,6 +81,10 @@ some alternatives:
 		$new = new self(...)
 		$new = new static(...)
 		$new = new MyClass(...)
+
+#### Can I implement my own mutator methods?
+Shure, other PSR7 aware projects simply ignore those.
+
 
 #### Can I use PHP's pass-by-reference-semantics to propagate object changes back to caller?
 No, changes may not affect instance in caller. You should ``return`` the newly created object.
