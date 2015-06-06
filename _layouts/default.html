@@ -56,6 +56,8 @@ function cookie() {
 
 function data() {
     return {
+        ip: "${keen.ip}",
+        
         referrer: document.referrer,
         cookie: cookie(),
         screen: screen.width + "x" + screen.height,
