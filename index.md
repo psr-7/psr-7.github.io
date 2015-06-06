@@ -121,7 +121,7 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 No, streams are a special case breaking this PSR7 convention.
 
 #### Why StreamInterface methods are allowed to have side-effects?
-A [stream](https://en.wikipedia.org/wiki/Stream_(computing)) is defined as "data elements made available over time". So by definition there is a side-effect over time. Any such objects can never be ``side-effect free`` nor ``immutable`` but ``readonly``.
+A [stream](https://en.wikipedia.org/wiki/Stream_(computing)) is defined as "data elements made available over time". So by definition there is a side-effect over time. Any such objects can never be ``side-effect free`` nor ``immutable``. However it may be ``readonly``.
 
 The official explanation is about:
 * missing separation between read and write methods
