@@ -117,8 +117,12 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 
 ### Streams
 
-#### Are streams handled side-effect free?
-No, streams are a special case breaking this PSR7 convention. Performance wise streams do not have to be recreated, cloned or copied on every change.
+#### Are mutator methods on StreamInterface side-effect free?
+No, streams are a special case breaking this PSR7 convention.
+
+#### Why StreamInterface methods are allowed to have side-effects?
+Because PHP does not offer "immutability".
+[](http://www.php-fig.org/psr/psr-7/meta/#why-are-streams-mutable?)
 
 **Watch out!** All clones and copies will have the same body but header values may differ!
 
