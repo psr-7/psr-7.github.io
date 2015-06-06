@@ -121,13 +121,10 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 No, streams are a special case breaking this PSR7 convention.
 
 #### Why StreamInterface methods are allowed to have side-effects?
-A [stream](https://en.wikipedia.org/wiki/Stream_(computing)) is defined as "data elements made available over time". So by definition there is a side-effect over time. Any such objects can never be ``side-effect free`` nor ``immutable``. However it may be ``readonly``.
+A [stream](https://en.wikipedia.org/wiki/Stream_(computing)) is defined as "data elements made available over time".
+So by definition there is a side-effect over time even for ``readonly`` streams. Immutable objects cannot be changed after creation at no time, so streams cannot be immutable.
 
-The official explanation is about:
-* missing separation between read and write methods
-* leaky abstraction as multiple instances of StreamInterface are allowed to wrap and change the same stream
-
-See: [Why are streams mutable?](http://www.php-fig.org/psr/psr-7/meta/#why-are-streams-mutable?)
+[official explanation](http://www.php-fig.org/psr/psr-7/meta/#why-are-streams-mutable?)
 
 
 #### Is there a way to access header values from "Chunked Trailer Part"?
