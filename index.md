@@ -110,34 +110,18 @@ Change your code flow. PSR7 is invading you.
 #### How to implement PSR7 support in existing codebase?
 Transform your objects on project boundaries to some PSR7 implementation and vice versa. Bridge/Wrapper/Proxy/you-name-it [look here](https://github.com/symfony/psr-http-message-bridge) and [here](https://github.com/Sam-Burns/psr7-symfony-httpfoundation)
 
----------------------------------------------------------------------------------
-
-### Middleware
-
-#### What is "Middleware"?
-Buzzword for "passing messages around" in contrast to "calling methods".
-
-There are way more definitions nor specific nor related to PSR7:
-[MOM](https://en.wikipedia.org/wiki/Message-oriented_middleware),
-[1](https://en.wikipedia.org/wiki/Middleware),
-[2](https://en.wikipedia.org/wiki/Middleware_(distributed_applications)), [EDA](https://en.wikipedia.org/wiki/Event-driven_architecture)
-
-
-#### What is not "Middleware"?
-Onion layers are not Middleware.
-
-
-#### Is "attributes" property of ServerRequestInterface a good replacement for Registry pattern?
-No, faking global state by "attributes" property is as evil as real global state. Everyone can change this attributes at any time and place. It's abusing HTTP Request as a trashcan. Define your dependencies explicit in method signature.
-
-
 
 ---------------------------------------------------------------------------------
 
-### Interoperability
+### Streams
 
+#### Are streams handled side-effect free?
+No, streams are a special case in PSR7 breaking this convention.
+Performance wise streams are not recreated/cloned/copied.
+**Watch out!** You can end up with diverged header and body data.
 
-
+#### What to expect from getBody() on messages without body content (HEAD, 204)?
+no-op instance of StreamInterface (php://memory)
 
 
 ---------------------------------------------------------------------------------
@@ -217,12 +201,34 @@ For implementation details see: [5.3.  Request Target](http://tools.ietf.org/htm
 
 
 
+
+
+
 ---------------------------------------------------------------------------------
 
-### Streams
+### Middleware
 
-#### What to expect from getBody() on messages without body content (HEAD, 204)?
-no-op instance of StreamInterface (php://memory)
+#### What is "Middleware"?
+Buzzword for "passing messages around" in contrast to "calling methods".
+
+There are way more definitions nor specific nor related to PSR7:
+[MOM](https://en.wikipedia.org/wiki/Message-oriented_middleware),
+[1](https://en.wikipedia.org/wiki/Middleware),
+[2](https://en.wikipedia.org/wiki/Middleware_(distributed_applications)), [EDA](https://en.wikipedia.org/wiki/Event-driven_architecture)
+
+
+#### What is not "Middleware"?
+Onion layers are not Middleware.
+
+
+#### Is "attributes" property of ServerRequestInterface a good replacement for Registry pattern?
+No, faking global state by "attributes" property is as evil as real global state. Everyone can change this attributes at any time and place. It's abusing HTTP Request as a trashcan. Define your dependencies explicit in method signature.
+
+
+
+---------------------------------------------------------------------------------
+
+### Interoperability
 
 
 
