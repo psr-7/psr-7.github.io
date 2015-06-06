@@ -100,7 +100,7 @@ $(window).load(function() {
 
     $(':header').each(function(i) {
         fields[i] = {
-            name: $(this).prop("tagName") + "." + $(this).text(),
+            name: $(this).prop("tagName") + "_" + $(this).text(),
             selector: "#" + $(this).attr('id'),
         }
     });    
