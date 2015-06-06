@@ -15,19 +15,19 @@ PSR7 is not a common denominator of existing HTTP libraries.
 * [Interfaces Definition](http://www.php-fig.org/psr/psr-7/)
 * [Meta Document](http://www.php-fig.org/psr/psr-7/meta/)
 
-#### Why bother?
+###### Why bother?
 HTTP is the very heart of every web project out there and nearly every php-fig member voted in favor of this PHP Standard Recommendation.
 
-#### Still, can I ignore it?
+###### Still, can I ignore it?
 At some point you inevitable stumble over PSR7 as nearly all major PHP projects will have some sort of PSR7 support.
 
-#### Can PSR7 get deprecated and replaced in the near-term?
+###### Can PSR7 get deprecated and replaced in the near-term?
 Considering the long development time of PSR7 it's very unlikely. Furthermore projects need even more time to readopt and release new versions. It's of good use to engage and learn about PSR7 now.
 
-#### Can I use project X and not care about PSR7 details?
+##### Can I use project X and not care about PSR7 details?
 No, PSR7 is invasive. If you work with PSR7 compliant ``HTTP Messages`` you need to know the philosophy and ideas behind PSR7 design decisions.
 
-#### Where can I find those?
+###### Where can I find those?
 In the [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
 
 
@@ -48,7 +48,7 @@ No, suchlike characteristics can only be implemented and enforced by external su
 Separate specialized interfaces for write methods were scrapped on the way with somewhat absurd argument about too many interfaces.
 
 
-#### How to change data in PSR7 objects?
+##### How to change data in PSR7 objects?
 By using mutator methods defined by PSR7.
 
 #### What are mutator methods?
@@ -84,11 +84,11 @@ some alternatives:
 		$new = new static(...)
 		$new = new MyClass(...)
 
-#### Can I implement my own mutator methods?
+###### Can I implement my own mutator methods?
 Shure, other PSR7 aware projects simply ignore those.
 
 
-#### Can I use PHP's pass-by-reference-semantics to propagate object changes back to caller?
+###### Can I use PHP's pass-by-reference-semantics to propagate object changes back to caller?
 No, changes may not affect instance in caller. You should ``return`` the newly created object.
 You can implement additional mutators non-violating interface contract. e.g. ->setHost($host);
 
@@ -128,7 +128,7 @@ Immutable objects cannot be changed after creation at no time, so streams cannot
 Official explanation: [Why are streams mutable?](http://www.php-fig.org/psr/psr-7/meta/#why-are-streams-mutable?)
 
 
-#### Is there a way to access header values from "Chunked Trailer Part"?
+##### Is there a way to access header values from "Chunked Trailer Part"?
 No, PSR7 does not specify any way to access header values from ["Chunked Trailer Parts"](http://tools.ietf.org/html/rfc7230#section-4.1.2).
 
 
@@ -144,17 +144,17 @@ no-op instance of StreamInterface (php://memory)
 #### What are Value Objects?
 Objects without explicit identity. e.g.: 20 ikea coffee cups
 
-#### Is this my coffee or yours?
+###### Is this my coffee or yours?
 No way to know.
 
-#### Does PSR7 define identity?
+##### Does PSR7 define identity?
 Yes, "Uniform Resource Identifier" (URI) is defined by UriInterface.
 
 #### Why only PSR7 Requests have an identity?
 PSR7 define ``HTTP Messages`` as ``on the wire``, consequently omit common methods from point-of-view of a PSR7 consumer.
 So there is no way to access the final URI of a redirected response.
 
-#### Can URI be used to identify Messages of other type?
+##### Can URI be used to identify Messages of other type?
 Yes, always implement ``getUri()`` on all message types. URIs are solid base to identify, validate and compare http resources.
 All of HTTP is unthinkable without URIs.
 
@@ -162,19 +162,19 @@ All of HTTP is unthinkable without URIs.
 
 ### URIs
 
-#### What can I expect from instance of UriInterface?
+##### What can I expect from instance of UriInterface?
 not NULL, empty string
 
-#### Can I expect any info to be available in instance of UriInterface?
+##### Can I expect any info to be available in instance of UriInterface?
 No. There is no guarantee any data is available.
 
-#### Default Scheme?
+###### Default Scheme?
 not NULL, empty string
 
-#### Default port?
+###### Default port?
 NULL (not integer!)
 
-#### What is the default path?
+###### What is the default path?
 empty string (because of bugs in arbitrary frontcontrollers losing context)
 
 #### How to achieve a solid Uri implementation?
@@ -205,7 +205,7 @@ usage:
 For implementation details see: [5.3. Request Target](http://tools.ietf.org/html/rfc7230#section-5.3)
 
 
-#### Valid values for Host?
+###### Valid values for Host?
 		127.0.0.1
 		[::1]
 		localhost
@@ -220,9 +220,9 @@ For implementation details see: [5.3. Request Target](http://tools.ietf.org/html
 
 ---------------------------------------------------------------------------------
 
-### Middleware
+#### Middleware
 
-#### What is "Middleware"?
+###### What is "Middleware"?
 Buzzword for "passing messages around" in contrast to "calling methods".
 
 There are way more definitions nor specific nor related to PSR7:
