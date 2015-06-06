@@ -151,7 +151,8 @@ No way to know.
 Yes, "Uniform Resource Identifier" (URI) is defined by UriInterface.
 
 #### Why only PSR7 Requests have an identity?
-PSR7 modeled ``HTTP Messages`` as ``on the wire``, consequently omit common methods of a PSR7 consumer point-of-view.
+PSR7 define ``HTTP Messages`` as ``on the wire``, consequently omit common methods from point-of-view of a PSR7 consumer.
+So there is no way to access the final URI of a redirected response.
 
 #### Can URI be used to identify Messages of other type?
 Yes, always implement ``getUri()`` on all message types. URIs are solid base to identify, validate and compare http resources.
