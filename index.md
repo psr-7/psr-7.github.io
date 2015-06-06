@@ -118,7 +118,7 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 ### Streams
 
 #### Are streams handled side-effect free?
-No, streams are a special case breaking this PSR7 convention. Performance wise streams do not have to be recreated, cloned or copied.
+No, streams are a special case breaking this PSR7 convention. Performance wise streams do not have to be recreated, cloned or copied on every change.
 
 **Watch out!** All clones and copies will have the same body but header values may differ!
 
