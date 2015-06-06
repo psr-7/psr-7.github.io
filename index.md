@@ -42,6 +42,10 @@ Changes without [side-effects](https://en.wikipedia.org/wiki/Side_effect_(comput
 #### What functional programming concepts are *not* used?
 Immutability is not used as PHP does not offer this feature. Most implementations even modify objects after creation by accessing private properties.
 
+###### Could an interface ensure immutability?
+No, suchlike characteristics can only be implemented and enforced by external supervisor (layer/runtime/...).
+Split off write operations to separate interface cherish this idea best but implementation was scrapped on the way with somewhat absurd argument about too many interfaces.
+
 #### How to change data in PSR7 objects?
 By using mutator methods defined by PSR7.
 
