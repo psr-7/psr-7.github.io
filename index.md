@@ -50,7 +50,7 @@ Split off write operations to separate interface cherish this idea best but impl
 By using mutator methods defined by PSR7.
 
 #### What are mutator methods?
-[Mutator method](https://en.wikipedia.org/wiki/Mutator_method) is every method changing data. e.g.:
+[Mutator method](https://en.wikipedia.org/wiki/Mutator_method) is a method changing data. e.g.:
 
 		->withHost($host)
 		->setName($name)
