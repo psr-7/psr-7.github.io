@@ -121,10 +121,17 @@ Transform your objects on project boundaries to some PSR7 implementation and vic
 No, streams are a special case breaking this PSR7 convention.
 
 #### Why StreamInterface methods are allowed to have side-effects?
-Because PHP does not offer "immutability".
-[](http://www.php-fig.org/psr/psr-7/meta/#why-are-streams-mutable?)
+A [stream](https://en.wikipedia.org/wiki/Stream_(computing)) is defined as "data elements made available over time". So by definition there is a side-effect over time.
 
-**Watch out!** All clones and copies will have the same body but header values may differ!
+The official explanation is about:
+* missing separation between read and write methods
+* leaky abstraction as multiple instances of StreamInterface are allowed to wrap and change the same stream
+* [Why are streams mutable?](http://www.php-fig.org/psr/psr-7/meta/#why-are-streams-mutable?)
+* 
+
+#### Is there a way to access header values from "Chunked Trailer Part"?
+No, PSR7 does not specify any way to access header values from ["Chunked Trailer Parts"](http://tools.ietf.org/html/rfc7230#section-4.1.2).
+
 
 
 ##### What to expect from getBody() on messages without body content (HEAD, GET request, 204)?
@@ -195,7 +202,7 @@ usage:
 
 		$request = $request->withRequestTarget($uri->originForm())
 
-For implementation details see: [5.3.  Request Target](http://tools.ietf.org/html/rfc7230#section-5.3)
+For implementation details see: [5.3. Request Target](http://tools.ietf.org/html/rfc7230#section-5.3)
 
 
 #### Valid values for Host?
