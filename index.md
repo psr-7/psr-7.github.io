@@ -37,7 +37,7 @@ In the [Meta Document](http://www.php-fig.org/psr/psr-7/meta/).
 ### Functional Programming
 
 #### What functional programming concepts are used?
-Changes without [side-effects](https://en.wikipedia.org/wiki/Side_effect_(computer_science)): No observable interaction with calling functions or the outside world beside returning a value.
+Functions without [side-effects](https://en.wikipedia.org/wiki/Side_effect_(computer_science)): No observable interaction with calling functions or the outside world beside returning a value.
 
 #### What functional programming concepts are *not* used?
 Immutability is not used as PHP does not offer this feature. Most implementations even modify objects after creation by accessing private properties.
